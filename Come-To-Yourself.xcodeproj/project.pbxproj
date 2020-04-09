@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		167D7DF666B6A7AC58945AF6 /* Pods_Come_To_Yourself.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFAADF6C9AAE5C3EEAC0E8D /* Pods_Come_To_Yourself.framework */; };
+		F84F78D3243E53A400E869E0 /* KayitOlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */; };
+		F84F78D5243E56B500E869E0 /* Yardimcilar_Dizayn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84F78D4243E56B500E869E0 /* Yardimcilar_Dizayn.swift */; };
+		F84F78D7243E5C3100E869E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F84F78D6243E5C3100E869E0 /* GoogleService-Info.plist */; };
 		F8ADCD08243E387300E22D31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ADCD07243E387300E22D31 /* AppDelegate.swift */; };
 		F8ADCD0A243E387300E22D31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ADCD09243E387300E22D31 /* SceneDelegate.swift */; };
 		F8ADCD0C243E387300E22D31 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ADCD0B243E387300E22D31 /* FirstViewController.swift */; };
@@ -15,9 +19,16 @@
 		F8ADCD13243E387500E22D31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8ADCD12243E387500E22D31 /* Assets.xcassets */; };
 		F8ADCD16243E387500E22D31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8ADCD14243E387500E22D31 /* LaunchScreen.storyboard */; };
 		F8ADCD1E243E40C900E22D31 /* GirisYapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ADCD1D243E40C900E22D31 /* GirisYapViewController.swift */; };
+		F8DB4D60243EB134006EF272 /* BaglantiKontrol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DB4D5F243EB134006EF272 /* BaglantiKontrol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6DD12BCFD505DFA0BB74608C /* Pods-Come-To-Yourself.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Come-To-Yourself.release.xcconfig"; path = "Target Support Files/Pods-Come-To-Yourself/Pods-Come-To-Yourself.release.xcconfig"; sourceTree = "<group>"; };
+		96AE0194854CC9FBA48C726C /* Pods-Come-To-Yourself.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Come-To-Yourself.debug.xcconfig"; path = "Target Support Files/Pods-Come-To-Yourself/Pods-Come-To-Yourself.debug.xcconfig"; sourceTree = "<group>"; };
+		9FFAADF6C9AAE5C3EEAC0E8D /* Pods_Come_To_Yourself.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Come_To_Yourself.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KayitOlViewController.swift; sourceTree = "<group>"; };
+		F84F78D4243E56B500E869E0 /* Yardimcilar_Dizayn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yardimcilar_Dizayn.swift; sourceTree = "<group>"; };
+		F84F78D6243E5C3100E869E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8ADCD04243E387300E22D31 /* Come-To-Yourself.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Come-To-Yourself.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ADCD07243E387300E22D31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8ADCD09243E387300E22D31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +39,7 @@
 		F8ADCD15243E387500E22D31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8ADCD17243E387500E22D31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8ADCD1D243E40C900E22D31 /* GirisYapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirisYapViewController.swift; sourceTree = "<group>"; };
+		F8DB4D5F243EB134006EF272 /* BaglantiKontrol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaglantiKontrol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				167D7DF666B6A7AC58945AF6 /* Pods_Come_To_Yourself.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		664DEF17202E5702477D8FDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96AE0194854CC9FBA48C726C /* Pods-Come-To-Yourself.debug.xcconfig */,
+				6DD12BCFD505DFA0BB74608C /* Pods-Come-To-Yourself.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		86D9CCF435F5E494A8482C52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9FFAADF6C9AAE5C3EEAC0E8D /* Pods_Come_To_Yourself.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F8ADCCFB243E387200E22D31 = {
 			isa = PBXGroup;
 			children = (
 				F8ADCD06243E387300E22D31 /* Come-To-Yourself */,
 				F8ADCD05243E387300E22D31 /* Products */,
+				664DEF17202E5702477D8FDE /* Pods */,
+				86D9CCF435F5E494A8482C52 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,14 +93,18 @@
 			isa = PBXGroup;
 			children = (
 				F8ADCD07243E387300E22D31 /* AppDelegate.swift */,
+				F84F78D4243E56B500E869E0 /* Yardimcilar_Dizayn.swift */,
+				F8DB4D5F243EB134006EF272 /* BaglantiKontrol.swift */,
 				F8ADCD09243E387300E22D31 /* SceneDelegate.swift */,
 				F8ADCD0B243E387300E22D31 /* FirstViewController.swift */,
 				F8ADCD1D243E40C900E22D31 /* GirisYapViewController.swift */,
+				F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */,
 				F8ADCD0D243E387300E22D31 /* SecondViewController.swift */,
 				F8ADCD0F243E387300E22D31 /* Main.storyboard */,
 				F8ADCD12243E387500E22D31 /* Assets.xcassets */,
 				F8ADCD14243E387500E22D31 /* LaunchScreen.storyboard */,
 				F8ADCD17243E387500E22D31 /* Info.plist */,
+				F84F78D6243E5C3100E869E0 /* GoogleService-Info.plist */,
 			);
 			path = "Come-To-Yourself";
 			sourceTree = "<group>";
@@ -80,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8ADCD1A243E387500E22D31 /* Build configuration list for PBXNativeTarget "Come-To-Yourself" */;
 			buildPhases = (
+				443ADD7DA8797267F75D904B /* [CP] Check Pods Manifest.lock */,
 				F8ADCD00243E387300E22D31 /* Sources */,
 				F8ADCD01243E387300E22D31 /* Frameworks */,
 				F8ADCD02243E387300E22D31 /* Resources */,
+				38DDA39DD5FFC08644DF9D67 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8ADCD16243E387500E22D31 /* LaunchScreen.storyboard in Resources */,
+				F84F78D7243E5C3100E869E0 /* GoogleService-Info.plist in Resources */,
 				F8ADCD13243E387500E22D31 /* Assets.xcassets in Resources */,
 				F8ADCD11243E387300E22D31 /* Main.storyboard in Resources */,
 			);
@@ -139,13 +178,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		38DDA39DD5FFC08644DF9D67 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Come-To-Yourself/Pods-Come-To-Yourself-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Come-To-Yourself/Pods-Come-To-Yourself-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Come-To-Yourself/Pods-Come-To-Yourself-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		443ADD7DA8797267F75D904B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Come-To-Yourself-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F8ADCD00243E387300E22D31 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84F78D3243E53A400E869E0 /* KayitOlViewController.swift in Sources */,
 				F8ADCD0E243E387300E22D31 /* SecondViewController.swift in Sources */,
 				F8ADCD0C243E387300E22D31 /* FirstViewController.swift in Sources */,
+				F8DB4D60243EB134006EF272 /* BaglantiKontrol.swift in Sources */,
+				F84F78D5243E56B500E869E0 /* Yardimcilar_Dizayn.swift in Sources */,
 				F8ADCD08243E387300E22D31 /* AppDelegate.swift in Sources */,
 				F8ADCD1E243E40C900E22D31 /* GirisYapViewController.swift in Sources */,
 				F8ADCD0A243E387300E22D31 /* SceneDelegate.swift in Sources */,
@@ -290,6 +374,7 @@
 		};
 		F8ADCD1B243E387500E22D31 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96AE0194854CC9FBA48C726C /* Pods-Come-To-Yourself.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,6 +393,7 @@
 		};
 		F8ADCD1C243E387500E22D31 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DD12BCFD505DFA0BB74608C /* Pods-Come-To-Yourself.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

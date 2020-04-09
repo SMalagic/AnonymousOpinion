@@ -7,19 +7,25 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class GirisYapViewController: UIViewController {
 
+    
+    @IBOutlet weak var kullaniciMailText: UITextField!
+    @IBOutlet weak var kullaniciSifreText: UITextField!
+    @IBOutlet weak var girisYapButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         //Dışarı basıldığında klavyeyi kapatır
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        
     }
     
     //Klavyeyi kapatan kod satırı
@@ -40,5 +46,12 @@ class GirisYapViewController: UIViewController {
             self.view.frame.origin.y = 0
         }
     }
+    
+    
+    @IBAction func girisYapButtonTapped(_ sender: Any) {
+        
 
+        
+    }
+    
 }
