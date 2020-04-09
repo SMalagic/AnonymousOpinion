@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		167D7DF666B6A7AC58945AF6 /* Pods_Come_To_Yourself.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFAADF6C9AAE5C3EEAC0E8D /* Pods_Come_To_Yourself.framework */; };
+		F83968E6243FE55300AD6C2A /* VeriYapilari.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83968E5243FE55300AD6C2A /* VeriYapilari.swift */; };
 		F84F78D3243E53A400E869E0 /* KayitOlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */; };
 		F84F78D5243E56B500E869E0 /* Yardimcilar_Dizayn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84F78D4243E56B500E869E0 /* Yardimcilar_Dizayn.swift */; };
 		F84F78D7243E5C3100E869E0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F84F78D6243E5C3100E869E0 /* GoogleService-Info.plist */; };
@@ -26,6 +27,7 @@
 		6DD12BCFD505DFA0BB74608C /* Pods-Come-To-Yourself.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Come-To-Yourself.release.xcconfig"; path = "Target Support Files/Pods-Come-To-Yourself/Pods-Come-To-Yourself.release.xcconfig"; sourceTree = "<group>"; };
 		96AE0194854CC9FBA48C726C /* Pods-Come-To-Yourself.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Come-To-Yourself.debug.xcconfig"; path = "Target Support Files/Pods-Come-To-Yourself/Pods-Come-To-Yourself.debug.xcconfig"; sourceTree = "<group>"; };
 		9FFAADF6C9AAE5C3EEAC0E8D /* Pods_Come_To_Yourself.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Come_To_Yourself.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F83968E5243FE55300AD6C2A /* VeriYapilari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeriYapilari.swift; sourceTree = "<group>"; };
 		F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KayitOlViewController.swift; sourceTree = "<group>"; };
 		F84F78D4243E56B500E869E0 /* Yardimcilar_Dizayn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yardimcilar_Dizayn.swift; sourceTree = "<group>"; };
 		F84F78D6243E5C3100E869E0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -71,6 +73,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F801466F243EFB4F00A1E251 /* Yardimcılar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Yardimcılar";
+			sourceTree = "<group>";
+		};
 		F8ADCCFB243E387200E22D31 = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +103,9 @@
 			children = (
 				F8ADCD07243E387300E22D31 /* AppDelegate.swift */,
 				F84F78D4243E56B500E869E0 /* Yardimcilar_Dizayn.swift */,
+				F83968E5243FE55300AD6C2A /* VeriYapilari.swift */,
 				F8DB4D5F243EB134006EF272 /* BaglantiKontrol.swift */,
+				F801466F243EFB4F00A1E251 /* Yardimcılar */,
 				F8ADCD09243E387300E22D31 /* SceneDelegate.swift */,
 				F8ADCD0B243E387300E22D31 /* FirstViewController.swift */,
 				F8ADCD1D243E40C900E22D31 /* GirisYapViewController.swift */,
@@ -228,6 +239,7 @@
 				F84F78D3243E53A400E869E0 /* KayitOlViewController.swift in Sources */,
 				F8ADCD0E243E387300E22D31 /* SecondViewController.swift in Sources */,
 				F8ADCD0C243E387300E22D31 /* FirstViewController.swift in Sources */,
+				F83968E6243FE55300AD6C2A /* VeriYapilari.swift in Sources */,
 				F8DB4D60243EB134006EF272 /* BaglantiKontrol.swift in Sources */,
 				F84F78D5243E56B500E869E0 /* Yardimcilar_Dizayn.swift in Sources */,
 				F8ADCD08243E387300E22D31 /* AppDelegate.swift in Sources */,

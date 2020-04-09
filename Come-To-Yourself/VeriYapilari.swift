@@ -1,0 +1,16 @@
+//
+//  VeriYapilari.swift
+//  Come-To-Yourself
+//
+//  Created by Serkan Mehmet Malagiç on 10.04.2020.
+//  Copyright © 2020 Serkan Mehmet Malagiç. All rights reserved.
+//
+
+import Foundation
+
+//Kullanıcı Bilgileri---------------
+var kullanici_adi = String()
+var kullanici_mail = String()
+var kullanici_sifre = String()
+var kullanici_puan = Int()
+

@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFirestore
 
+
 class KayitOlViewController: UIViewController {
 
     @IBOutlet weak var adsoyadText: UITextField!
@@ -62,9 +63,16 @@ class KayitOlViewController: UIViewController {
                self.sifreTekrarText.text = ""
                self.sifreText.text       = ""
            }
+           else if sifreText.text!.count < 8 {
+                self.alertFunction(message: "Girilen Şifre 8 Karakterden Kısa Olamaz")
+                self.sifreTekrarText.text = ""
+                self.sifreText.text       = ""
+           }
            else
            {
                kayitOlButton.showLoading()
+               view.endEditing(true)
+            
                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                    self.kullaniciKontrol()
                }
@@ -85,6 +93,8 @@ class KayitOlViewController: UIViewController {
             } else {
                 if let doc = querysnapshot?.documents, !doc.isEmpty {
                     print("Veri Mevcut")
+                    print()
+
                     self.kayitOlButton.hideLoading()
                     self.alertFunction(message: "Mail ile kayıt olunmuş")
                     self.adsoyadText.text     = ""
@@ -102,8 +112,6 @@ class KayitOlViewController: UIViewController {
     }
     func kullaniciKayit(){
         
-        kayitOlButton.showLoading()
-        view.endEditing(true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
 
             let fireStoreDatabase = Firestore.firestore()
