@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import FirebaseFirestore
-
+import PopupDialog
 
 class KayitOlViewController: UIViewController {
 
@@ -57,25 +56,29 @@ class KayitOlViewController: UIViewController {
            if self.mailText.text == "" || self.sifreText.text == "" || self.sifreTekrarText.text == "" || adsoyadText.text == "" {
                        self.alertFunction(message: "Lütfen Bilgileri Boş Bırakmayınız")
            }
-           else if sifreText.text != sifreTekrarText.text {
-               self.alertFunction(message: "Şifreler birbiri ile uyuşmuyor")
-               
-               self.sifreTekrarText.text = ""
-               self.sifreText.text       = ""
-           }
-           else if sifreText.text!.count < 8 {
-                self.alertFunction(message: "Girilen Şifre 8 Karakterden Kısa Olamaz")
-                self.sifreTekrarText.text = ""
-                self.sifreText.text       = ""
-           }
+//           else if sifreText.text != sifreTekrarText.text {
+//               self.alertFunction(message: "Şifreler birbiri ile uyuşmuyor")
+//
+//               self.sifreTekrarText.text = ""
+//               self.sifreText.text       = ""
+//           }
+//           else if sifreText.text!.count < 8 {
+//                self.alertFunction(message: "Girilen Şifre 8 Karakterden Kısa Olamaz")
+//                self.sifreTekrarText.text = ""
+//                self.sifreText.text       = ""
+//           }
            else
            {
-               kayitOlButton.showLoading()
-               view.endEditing(true)
             
-               DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                   self.kullaniciKontrol()
-               }
+            self.kayitOlButton.showLoading()
+            self.view.endEditing(true)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.kullaniciKontrol()
+            }
+
+              
+               
            }
         }
         else{
@@ -83,56 +86,100 @@ class KayitOlViewController: UIViewController {
         }
         
     }
-    func kullaniciKontrol(){
+    func kullaniciKayit(){
+        //post metoduyla karşı tarafa gönderilecek
         
-        let db = Firestore.firestore()
-        let docRef = db.collection("kullanici").whereField("mail", isEqualTo: mailText.text! ).limit(to: 1)
-        docRef.getDocuments { (querysnapshot, error) in
-            if error != nil {
-                print("Document Error: ", error!)
-            } else {
-                if let doc = querysnapshot?.documents, !doc.isEmpty {
-                    print("Veri Mevcut")
-                    print()
+        //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
 
-                    self.kayitOlButton.hideLoading()
-                    self.alertFunction(message: "Mail ile kayıt olunmuş")
-                    self.adsoyadText.text     = ""
-                    self.mailText.text        = ""
-                    self.sifreTekrarText.text = ""
-                    self.sifreText.text       = ""
-                    
+            // prepare json data
+        let json: [String: Any] = ["adsoyad": adsoyadText.text!,
+                                   "mail": mailText.text!,
+                                   "sifre": sifreText.text!,
+                                       "puan": 0
+                                        ]
+
+            let jsonData = try? JSONSerialization.data(withJSONObject: json)
+
+            // create post request
+            let url = URL(string: base_url + "/kullanici/kullanici_kayit.php")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+
+            // insert json data to the request
+            request.httpBody = jsonData
+
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    return
                 }
-                else{
-                    print("Veri Yok Alert Göster")
-                    self.kullaniciKayit()
+                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let responseJSON = responseJSON as? [String: Any] {
+                    print(responseJSON)
                 }
             }
-        }
-    }
-    func kullaniciKayit(){
+
+            task.resume()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-
-            let fireStoreDatabase = Firestore.firestore()
-            var fireStoreReference : DocumentReference? = nil
-            let fireStoreKullanici = [ "ad" :   self.adsoyadText.text  ,
-                                       "mail" : self.mailText.text!    ,
-                                       "sifre": self.sifreText.text!   ,
-                                       "puan":  0
-                                     ] as [String : Any]
-
-            fireStoreReference = fireStoreDatabase.collection("kullanici").addDocument(data: fireStoreKullanici, completion: { (error) in
-
-                if error != nil{
-                    self.alertFunction(message: "Hata :" + error!.localizedDescription)
-                }
-                else{
-                    self.alertFunction(message: "Kayıt Olma İşlemi Başarılı")
-                    self.kayitOlButton.hideLoading()
-                }
-            })
+        
+        
+       
+    }
+    func kullaniciKontrol(){
+        
+        DispatchQueue.main.async {
+            
+            //PHP DOSYASINA GÖNDERİLECEK URL OLUŞTURULUYOR
+                        let myUrl = URL(string: base_url + "/kullanici/kullanici_kontrol.php?mail=" + self.mailText.text! );
+                        
+                        var request = URLRequest(url:myUrl!)
+                        request.httpMethod = "GET"// Compose a query string
+                                
+                        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                            if error != nil
+                            {
+                                print("error=\(error)")
+                                return
+                            }
+                            //Let's convert response sent from a server side script to a NSDictionary object:
+                            do {
+                                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                                
+                                if let parseJSON = json {
+                                    
+                                    print(json)
+                                    //WEB SERSİVİNDEN DÖNEN HASH VE SUCCESS DEĞERLERİ BURADAN ALINIP MAİL OLARAK GÖNDERİLECEK
+                                    let cevapValue =  parseJSON["cevap"] as? String
+            
+                                    if cevapValue == "1"{
+                                        DispatchQueue.main.async {
+            
+                                            self.alertFunction(message: "Mail Adresi Daha Önceden Alınmış")
+            
+                                            kullanici_mail =  parseJSON["mail"] as! String
+                                            kullanici_adi =  parseJSON["adsoyad"] as! String
+                                            kullanici_created_at =  parseJSON["created_at"] as! String
+            
+                                            self.kayitOlButton.hideLoading()
+                                        }
+                                    }
+                                    else{
+                                        DispatchQueue.main.async {
+                                            self.kayitOlButton.hideLoading()
+                                            self.alertFunction(message: "Kayıt İşlemi Başarıyla Gerçekleşti")
+                                            self.kullaniciKayit()
+                                        }
+                                    }
+                                  
+                                }
+                            } catch {
+                                print(error)
+                            }
+                        }
+                        task.resume()
         }
+            
+        
         
     }
     

@@ -7,8 +7,7 @@ target 'Come-To-Yourself' do
 
   # Pods for Come-To-Yourself
 
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Firestore'
+
   pod 'PopupDialog', '~> 1.1'
   pod 'StatusAlert', '~> 1.1.1'
 

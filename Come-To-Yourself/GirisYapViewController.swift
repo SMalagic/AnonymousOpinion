@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import FirebaseFirestore
 
 class GirisYapViewController: UIViewController {
 
     
     @IBOutlet weak var kullaniciMailText: UITextField!
     @IBOutlet weak var kullaniciSifreText: UITextField!
-    @IBOutlet weak var girisYapButton: UIButton!
+    @IBOutlet weak var girisYapButton: LoadingButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,31 +56,20 @@ class GirisYapViewController: UIViewController {
                   }
                   else
                   {
-                     //gelen bilgilerin alındığı yer
                     
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        self.girisYapButton.showLoading()
+                        self.view.endEditing(true)
+                        
+                         
+                    }
+
                     
                    }
                 
                 }
         
-        let db = Firestore.firestore()
-        let docRef = db.collection("kullanici").whereField("mail", isEqualTo: "a@b").getDocuments { (snapshot, error) in
-            if error != nil {
-                self.alertFunction(message: "Bilinmeyen Bir Hata Oluştu. Tekrar Deneyiniz")
-            }
-            else{
-                
-                for document in (snapshot?.documents)! {
-                    kullanici_mail = document.data()["mail"] as! String
-                    kullanici_sifre = document.data()["sifre"] as! String
-                    kullanici_puan = document.data()["puan"] as! Int
-                    kullanici_adi = document.data()["ad"] as! String
-
-                    print("Kullanıcının Mail : \(kullanici_mail)  Kullanıcı Sifre :  \(kullanici_sifre) Kullanıcı Puan : \(kullanici_puan) Kullanici Adı : \(kullanici_adi)")
-                }
-                
-            }
-        }
+        
 
         
     }
