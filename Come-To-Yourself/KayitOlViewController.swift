@@ -56,17 +56,17 @@ class KayitOlViewController: UIViewController {
            if self.mailText.text == "" || self.sifreText.text == "" || self.sifreTekrarText.text == "" || adsoyadText.text == "" {
                        self.alertFunction(message: "Lütfen Bilgileri Boş Bırakmayınız")
            }
-//           else if sifreText.text != sifreTekrarText.text {
-//               self.alertFunction(message: "Şifreler birbiri ile uyuşmuyor")
-//
-//               self.sifreTekrarText.text = ""
-//               self.sifreText.text       = ""
-//           }
-//           else if sifreText.text!.count < 8 {
-//                self.alertFunction(message: "Girilen Şifre 8 Karakterden Kısa Olamaz")
-//                self.sifreTekrarText.text = ""
-//                self.sifreText.text       = ""
-//           }
+           else if sifreText.text != sifreTekrarText.text {
+               self.alertFunction(message: "Şifreler birbiri ile uyuşmuyor")
+
+               self.sifreTekrarText.text = ""
+               self.sifreText.text       = ""
+           }
+           else if sifreText.text!.count < 8 {
+                self.alertFunction(message: "Girilen Şifre 8 Karakterden Kısa Olamaz")
+                self.sifreTekrarText.text = ""
+                self.sifreText.text       = ""
+           }
            else
            {
             
@@ -92,7 +92,7 @@ class KayitOlViewController: UIViewController {
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
 
             // prepare json data
-        let json: [String: Any] = ["adsoyad": adsoyadText.text!,
+            let json: [String: Any] = ["adsoyad": adsoyadText.text!,
                                    "mail": mailText.text!,
                                    "sifre": sifreText.text!,
                                        "puan": 0
@@ -108,6 +108,7 @@ class KayitOlViewController: UIViewController {
             // insert json data to the request
             request.httpBody = jsonData
 
+        DispatchQueue.main.async {
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {
                     print(error?.localizedDescription ?? "No data")
@@ -116,10 +117,32 @@ class KayitOlViewController: UIViewController {
                 let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let responseJSON = responseJSON as? [String: Any] {
                     print(responseJSON)
+                    let cevapValue = responseJSON["cevap"] as! String
+                    
+                    if cevapValue == "1" {
+                        DispatchQueue.main.async {
+                            let title = "Uyarı Penceresi"
+                            let message = "Kayıt İşlemi Başarılı Lütfen Giriş Yapın"
+                            let popup = PopupDialog(title: title, message: message)
+                            popup.transitionStyle = .fadeIn
+                            let buttonOne = CancelButton(title: "Giriş Yap") {
+                                self.performSegue(withIdentifier: "toGirisYapSegue", sender: nil)
+                            }
+                            popup.addButtons([buttonOne])
+                            self.present(popup, animated: true, completion: nil)
+                        }
+                        
+                    }
+                    else{
+                        
+                    }
                 }
             }
 
             task.resume()
+        }
+        
+            
         
         
         
@@ -166,7 +189,6 @@ class KayitOlViewController: UIViewController {
                                     else{
                                         DispatchQueue.main.async {
                                             self.kayitOlButton.hideLoading()
-                                            self.alertFunction(message: "Kayıt İşlemi Başarıyla Gerçekleşti")
                                             self.kullaniciKayit()
                                         }
                                     }
