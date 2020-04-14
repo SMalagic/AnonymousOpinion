@@ -8,23 +8,43 @@
 
 import UIKit
 
-class EkleViewController: UIViewController {
+class EkleViewController: UIViewController , UISearchBarDelegate{
+
+    let searchBar = UISearchBar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        searchBar.becomeFirstResponder()
+        searchBar.showsCancelButton = false
+        searchBar.placeholder = "Kimin Hakkında..."
+        searchBar.delegate = self
+        searchBar.autocapitalizationType = .none
+        navigationItem.titleView = searchBar
+        
+        //DONE BUTTON KLAVYENİN ÜZERİNDEKİ GİZLEME BUTONU--->TÜM TEXTFİELDLAR
+               var toolbar = UIToolbar()
+               toolbar.sizeToFit()
+               var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+               var doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
+               toolbar.setItems([flexibleSpace, doneButton], animated: true)
+        
+        searchBar.inputAccessoryView = toolbar
+
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+           
+        searchBar.endEditing(true)
+    print(searchBar.text)
+       
     }
-    */
+           
+
+    @objc func doneClicked(){
+           searchBar.endEditing(true)
+       }
+       
 
 }

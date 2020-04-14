@@ -17,7 +17,7 @@ class LoadingButton: UIButton {
     var activityIndicator: UIActivityIndicatorView!
     
     @IBInspectable
-    let activityIndicatorColor: UIColor = .white
+    var activityIndicatorColor: UIColor = .white
     
     func showLoading() {
         originalButtonText = self.titleLabel?.text

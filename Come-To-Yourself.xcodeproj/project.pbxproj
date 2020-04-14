@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		167D7DF666B6A7AC58945AF6 /* Pods_Come_To_Yourself.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FFAADF6C9AAE5C3EEAC0E8D /* Pods_Come_To_Yourself.framework */; };
+		F81FCA2C2446253500302AA8 /* TanitimViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FCA2B2446253500302AA8 /* TanitimViewController.swift */; };
 		F832C3852440222800AF0841 /* AnasayfaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832C3842440222800AF0841 /* AnasayfaViewController.swift */; };
 		F832C3882440224C00AF0841 /* EkleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832C3872440224C00AF0841 /* EkleViewController.swift */; };
 		F832C38B2440226700AF0841 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832C38A2440226700AF0841 /* ProfilViewController.swift */; };
 		F83968E6243FE55300AD6C2A /* VeriYapilari.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83968E5243FE55300AD6C2A /* VeriYapilari.swift */; };
 		F84F78D3243E53A400E869E0 /* KayitOlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */; };
 		F84F78D5243E56B500E869E0 /* Yardimcilar_Dizayn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84F78D4243E56B500E869E0 /* Yardimcilar_Dizayn.swift */; };
+		F896140C24462DAD000C45A0 /* apple.gif in Resources */ = {isa = PBXBuildFile; fileRef = F896140B24462DAD000C45A0 /* apple.gif */; };
+		F896140E24463154000C45A0 /* ciftetelli.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F896140D24463154000C45A0 /* ciftetelli.mp3 */; };
 		F8ADCD08243E387300E22D31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ADCD07243E387300E22D31 /* AppDelegate.swift */; };
 		F8ADCD0A243E387300E22D31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ADCD09243E387300E22D31 /* SceneDelegate.swift */; };
 		F8ADCD11243E387300E22D31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8ADCD0F243E387300E22D31 /* Main.storyboard */; };
@@ -27,12 +30,15 @@
 		6DD12BCFD505DFA0BB74608C /* Pods-Come-To-Yourself.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Come-To-Yourself.release.xcconfig"; path = "Target Support Files/Pods-Come-To-Yourself/Pods-Come-To-Yourself.release.xcconfig"; sourceTree = "<group>"; };
 		96AE0194854CC9FBA48C726C /* Pods-Come-To-Yourself.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Come-To-Yourself.debug.xcconfig"; path = "Target Support Files/Pods-Come-To-Yourself/Pods-Come-To-Yourself.debug.xcconfig"; sourceTree = "<group>"; };
 		9FFAADF6C9AAE5C3EEAC0E8D /* Pods_Come_To_Yourself.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Come_To_Yourself.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81FCA2B2446253500302AA8 /* TanitimViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TanitimViewController.swift; sourceTree = "<group>"; };
 		F832C3842440222800AF0841 /* AnasayfaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnasayfaViewController.swift; sourceTree = "<group>"; };
 		F832C3872440224C00AF0841 /* EkleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkleViewController.swift; sourceTree = "<group>"; };
 		F832C38A2440226700AF0841 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
 		F83968E5243FE55300AD6C2A /* VeriYapilari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeriYapilari.swift; sourceTree = "<group>"; };
 		F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KayitOlViewController.swift; sourceTree = "<group>"; };
 		F84F78D4243E56B500E869E0 /* Yardimcilar_Dizayn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yardimcilar_Dizayn.swift; sourceTree = "<group>"; };
+		F896140B24462DAD000C45A0 /* apple.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = apple.gif; sourceTree = "<group>"; };
+		F896140D24463154000C45A0 /* ciftetelli.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ciftetelli.mp3; sourceTree = "<group>"; };
 		F8ADCD04243E387300E22D31 /* Come-To-Yourself.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Come-To-Yourself.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ADCD07243E387300E22D31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8ADCD09243E387300E22D31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,9 +142,12 @@
 				F832C3892440225600AF0841 /* Profil */,
 				F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */,
 				F8ADCD1D243E40C900E22D31 /* GirisYapViewController.swift */,
+				F81FCA2B2446253500302AA8 /* TanitimViewController.swift */,
 				F8ADCD0F243E387300E22D31 /* Main.storyboard */,
 				F8ADCD12243E387500E22D31 /* Assets.xcassets */,
 				F8ADCD14243E387500E22D31 /* LaunchScreen.storyboard */,
+				F896140D24463154000C45A0 /* ciftetelli.mp3 */,
+				F896140B24462DAD000C45A0 /* apple.gif */,
 				F8ADCD17243E387500E22D31 /* Info.plist */,
 			);
 			path = "Come-To-Yourself";
@@ -206,6 +215,8 @@
 			files = (
 				F8ADCD16243E387500E22D31 /* LaunchScreen.storyboard in Resources */,
 				F8ADCD13243E387500E22D31 /* Assets.xcassets in Resources */,
+				F896140E24463154000C45A0 /* ciftetelli.mp3 in Resources */,
+				F896140C24462DAD000C45A0 /* apple.gif in Resources */,
 				F8ADCD11243E387300E22D31 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +275,7 @@
 				F832C3852440222800AF0841 /* AnasayfaViewController.swift in Sources */,
 				F8DB4D60243EB134006EF272 /* BaglantiKontrol.swift in Sources */,
 				F84F78D5243E56B500E869E0 /* Yardimcilar_Dizayn.swift in Sources */,
+				F81FCA2C2446253500302AA8 /* TanitimViewController.swift in Sources */,
 				F8ADCD08243E387300E22D31 /* AppDelegate.swift in Sources */,
 				F832C38B2440226700AF0841 /* ProfilViewController.swift in Sources */,
 				F8ADCD1E243E40C900E22D31 /* GirisYapViewController.swift in Sources */,

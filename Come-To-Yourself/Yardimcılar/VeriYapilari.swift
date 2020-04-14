@@ -9,7 +9,7 @@
 import Foundation
 
 //Api Bilgileri---------------------
-var base_url = "http://192.168.1.37:8888/cometoyourself/api"
+var base_url = "http://192.168.1.37:8888/cometoyourselfapi/api"
 
 
 //Kullanıcı Bilgileri---------------
