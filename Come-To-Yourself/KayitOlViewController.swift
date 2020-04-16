@@ -134,7 +134,7 @@ class KayitOlViewController: UIViewController {
                         
                     }
                     else{
-                        
+                        self.alertFunction(message: "Kullanıcı mevcut")
                     }
                 }
             }

@@ -19,3 +19,13 @@ var kullanici_sifre = String()
 var kullanici_puan = Int()
 var kullanici_created_at = String()
 
+//MODELİMİZ
+struct Kullanici: Decodable{
+    let id:         String
+    let adsoyad:    String
+    let mail:       String
+    let puan:       String
+}
+var kullanicilarJson = [Kullanici]()
+
+var secilen_kullanici_id = String()

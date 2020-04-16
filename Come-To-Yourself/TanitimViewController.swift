@@ -37,11 +37,7 @@ class TanitimViewController: UIViewController {
         //mp3 ses kaydının uzunluu ile aynı olmalıdır
         //bitiğinde diğer sayfaya yönlendirilecektir
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            self.view.isUserInteractionEnabled = true
-            self.performSegue(withIdentifier: "toGirisYapSegue", sender: nil)
-            self.player?.stop()
-        }
+       
         
     }
     

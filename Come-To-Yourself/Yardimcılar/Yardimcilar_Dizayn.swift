@@ -141,3 +141,32 @@ extension UIView {
     
     
 }
+
+
+//TABLODA BOŞ İKEN BELİRLEDĞİİMİZ MESAJ YAZACAK
+extension UITableView {
+    func setEmptyMessage(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = UIColor(red: 31/255, green: 33/255, blue: 36/255, alpha: 1.0)
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.font = UIFont(name: "Futura", size: 35)
+        messageLabel.sizeToFit()
+        
+        self.backgroundView = messageLabel;
+        self.separatorStyle = .none;
+    }
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .singleLine
+    }
+}
+
+extension NSMutableData {
+    func appendString(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
+    }
+}
+
