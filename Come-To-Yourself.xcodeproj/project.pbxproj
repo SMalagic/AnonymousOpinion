@@ -107,8 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				F832C3872440224C00AF0841 /* EkleViewController.swift */,
-				F84CF7D52448BB2600F591FC /* PuanVer */,
 				F84CF7D324488E8100F591FC /* EkleTableViewCell.swift */,
+				F84CF7D52448BB2600F591FC /* PuanVer */,
 			);
 			path = Ekle;
 			sourceTree = "<group>";

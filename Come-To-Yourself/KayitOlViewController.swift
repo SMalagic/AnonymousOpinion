@@ -10,7 +10,7 @@ import UIKit
 import PopupDialog
 
 class KayitOlViewController: UIViewController {
-
+    
     @IBOutlet weak var adsoyadText: UITextField!
     @IBOutlet weak var mailText: UITextField!
     @IBOutlet weak var sifreText: UITextField!
@@ -53,33 +53,33 @@ class KayitOlViewController: UIViewController {
         
         //İNTERNETE BAĞLI MI DEĞİL Mİ KONTROL EDİYORUZ
         if Reachability.isConnectedToNetwork(){
-           if self.mailText.text == "" || self.sifreText.text == "" || self.sifreTekrarText.text == "" || adsoyadText.text == "" {
-                       self.alertFunction(message: "Lütfen Bilgileri Boş Bırakmayınız")
-           }
-           else if sifreText.text != sifreTekrarText.text {
-               self.alertFunction(message: "Şifreler birbiri ile uyuşmuyor")
-
-               self.sifreTekrarText.text = ""
-               self.sifreText.text       = ""
-           }
-           else if sifreText.text!.count < 8 {
+            if self.mailText.text == "" || self.sifreText.text == "" || self.sifreTekrarText.text == "" || adsoyadText.text == "" {
+                self.alertFunction(message: "Lütfen Bilgileri Boş Bırakmayınız")
+            }
+            else if sifreText.text != sifreTekrarText.text {
+                self.alertFunction(message: "Şifreler birbiri ile uyuşmuyor")
+                
+                self.sifreTekrarText.text = ""
+                self.sifreText.text       = ""
+            }
+            else if sifreText.text!.count < 8 {
                 self.alertFunction(message: "Girilen Şifre 8 Karakterden Kısa Olamaz")
                 self.sifreTekrarText.text = ""
                 self.sifreText.text       = ""
-           }
-           else
-           {
-            
-            self.kayitOlButton.showLoading()
-            self.view.endEditing(true)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.kullaniciKontrol()
             }
-
-              
-               
-           }
+            else
+            {
+                
+                self.kayitOlButton.showLoading()
+                self.view.endEditing(true)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.kullaniciKontrol()
+                }
+                
+                
+                
+            }
         }
         else{
             alertFunction(message: "İnternet Bağlantınızı Kontrol Ediniz")
@@ -90,24 +90,24 @@ class KayitOlViewController: UIViewController {
         //post metoduyla karşı tarafa gönderilecek
         
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
-
-            // prepare json data
-            let json: [String: Any] = ["adsoyad": adsoyadText.text!,
+        
+        // prepare json data
+        let json: [String: Any] = ["adsoyad": adsoyadText.text!,
                                    "mail": mailText.text!,
                                    "sifre": sifreText.text!,
-                                       "puan": 0
-                                        ]
-
-            let jsonData = try? JSONSerialization.data(withJSONObject: json)
-
-            // create post request
-            let url = URL(string: base_url + "/kullanici/kullanici_kayit.php")!
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-
-            // insert json data to the request
-            request.httpBody = jsonData
-
+                                   "puan": 0
+        ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        // create post request
+        let url = URL(string: base_url + "/kullanici/kullanici_kayit.php")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        // insert json data to the request
+        request.httpBody = jsonData
+        
         DispatchQueue.main.async {
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {
@@ -138,69 +138,69 @@ class KayitOlViewController: UIViewController {
                     }
                 }
             }
-
+            
             task.resume()
         }
         
-            
         
         
         
-       
+        
+        
     }
     func kullaniciKontrol(){
         
         DispatchQueue.main.async {
             
             //PHP DOSYASINA GÖNDERİLECEK URL OLUŞTURULUYOR
-                        let myUrl = URL(string: base_url + "/kullanici/kullanici_kontrol.php?mail=" + self.mailText.text! );
+            let myUrl = URL(string: base_url + "/kullanici/kullanici_kontrol.php?mail=" + self.mailText.text! );
+            
+            var request = URLRequest(url:myUrl!)
+            request.httpMethod = "GET"// Compose a query string
+            
+            let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                if error != nil
+                {
+                    print("error=\(error)")
+                    return
+                }
+                //Let's convert response sent from a server side script to a NSDictionary object:
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                    
+                    if let parseJSON = json {
                         
-                        var request = URLRequest(url:myUrl!)
-                        request.httpMethod = "GET"// Compose a query string
+                        print(json)
+                        //WEB SERSİVİNDEN DÖNEN HASH VE SUCCESS DEĞERLERİ BURADAN ALINIP MAİL OLARAK GÖNDERİLECEK
+                        let cevapValue =  parseJSON["cevap"] as? String
+                        
+                        if cevapValue == "1"{
+                            DispatchQueue.main.async {
                                 
-                        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-                            if error != nil
-                            {
-                                print("error=\(error)")
-                                return
-                            }
-                            //Let's convert response sent from a server side script to a NSDictionary object:
-                            do {
-                                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                                self.alertFunction(message: "Mail Adresi Daha Önceden Alınmış")
                                 
-                                if let parseJSON = json {
-                                    
-                                    print(json)
-                                    //WEB SERSİVİNDEN DÖNEN HASH VE SUCCESS DEĞERLERİ BURADAN ALINIP MAİL OLARAK GÖNDERİLECEK
-                                    let cevapValue =  parseJSON["cevap"] as? String
-            
-                                    if cevapValue == "1"{
-                                        DispatchQueue.main.async {
-            
-                                            self.alertFunction(message: "Mail Adresi Daha Önceden Alınmış")
-            
-                                            kullanici_mail =  parseJSON["mail"] as! String
-                                            kullanici_adi =  parseJSON["adsoyad"] as! String
-                                            kullanici_created_at =  parseJSON["created_at"] as! String
-            
-                                            self.kayitOlButton.hideLoading()
-                                        }
-                                    }
-                                    else{
-                                        DispatchQueue.main.async {
-                                            self.kayitOlButton.hideLoading()
-                                            self.kullaniciKayit()
-                                        }
-                                    }
-                                  
-                                }
-                            } catch {
-                                print(error)
+                                kullanici_mail =  parseJSON["mail"] as! String
+                                kullanici_adi =  parseJSON["adsoyad"] as! String
+                                kullanici_created_at =  parseJSON["created_at"] as! String
+                                
+                                self.kayitOlButton.hideLoading()
                             }
                         }
-                        task.resume()
+                        else{
+                            DispatchQueue.main.async {
+                                self.kayitOlButton.hideLoading()
+                                self.kullaniciKayit()
+                            }
+                        }
+                        
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+            task.resume()
         }
-            
+        
         
         
     }

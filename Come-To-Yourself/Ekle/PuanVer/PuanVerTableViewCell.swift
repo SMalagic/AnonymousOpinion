@@ -11,6 +11,7 @@ import UIKit
 class PuanVerTableViewCell: UITableViewCell {
 
     @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var soruLabel: UILabel!
     
     
     override func awakeFromNib() {

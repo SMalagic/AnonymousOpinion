@@ -2,11 +2,13 @@ PODS:
   - DynamicBlurView (4.0.0)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
+  - SCLAlertView (0.8)
   - StatusAlert (1.1.1)
   - SwiftGifOrigin (1.7.0)
 
 DEPENDENCIES:
   - PopupDialog (~> 1.1)
+  - SCLAlertView
   - StatusAlert (~> 1.1.1)
   - SwiftGifOrigin
 
@@ -14,15 +16,17 @@ SPEC REPOS:
   trunk:
     - DynamicBlurView
     - PopupDialog
+    - SCLAlertView
     - StatusAlert
     - SwiftGifOrigin
 
 SPEC CHECKSUMS:
   DynamicBlurView: ccf9acd2b20c883cc2c72e3524a04d8d3ee20533
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   StatusAlert: a18ec3c33d36a06d4479c1f2b15ffac67aaf7ab1
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
 
-PODFILE CHECKSUM: 2fdc158185ec2cc544c2051b047412bfa819e96d
+PODFILE CHECKSUM: 7b30f95b8a2409bc422509291601d0e460211d0c
 
 COCOAPODS: 1.9.1

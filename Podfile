@@ -11,6 +11,7 @@ target 'Come-To-Yourself' do
   pod 'PopupDialog', '~> 1.1'
   pod 'StatusAlert', '~> 1.1.1'
   pod 'SwiftGifOrigin'
+  pod 'SCLAlertView'
 
 
 

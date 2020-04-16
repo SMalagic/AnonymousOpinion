@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-Come-To-Yourself/Pods-Come-To-Yourself-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework
 ${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework
+${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework
 ${BUILT_PRODUCTS_DIR}/StatusAlert/StatusAlert.framework
 ${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework

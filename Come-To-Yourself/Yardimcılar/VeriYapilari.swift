@@ -9,8 +9,8 @@
 import Foundation
 
 //Api Bilgileri---------------------
+//var base_url = "https://ill-natured-violati.000webhostapp.com/api"
 var base_url = "http://192.168.1.37:8888/cometoyourselfapi/api"
-
 
 //Kullanıcı Bilgileri---------------
 var kullanici_adi = String()
@@ -29,3 +29,13 @@ struct Kullanici: Decodable{
 var kullanicilarJson = [Kullanici]()
 
 var secilen_kullanici_id = String()
+
+
+//MODELİMİZ
+struct Soru: Decodable{
+    let id:                 String
+    let soru:               String
+    let oylayan_sayisi:     Int
+    let created_at:         String
+}
+var sorularJson = [Soru]()
