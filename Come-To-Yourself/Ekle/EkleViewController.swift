@@ -137,7 +137,14 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "KullaniciCell") as! EkleTableViewCell
         
         cell.kullaniciAdıLabel.text = kullanicilarJson[indexPath.row].adsoyad.uppercased()
-        cell.shadowView.dropShadowTiny()
+        
+        //el ile gölgelendirme veriliyor
+        cell.shadowView.backgroundColor = UIColor.white
+        cell.shadowView.layer.shadowColor = UIColor.gray.cgColor
+        cell.shadowView.layer.shadowOpacity = 0.6
+        cell.shadowView.layer.shadowOffset = CGSize.zero
+        cell.shadowView.layer.shadowRadius = 5
+        
         cell.shadowView.cornerRadius()
         
         //SEÇİM YAPILACAK HÜCRENİN ARKA PLAN RENGİNİ AYARLIYORUZ.

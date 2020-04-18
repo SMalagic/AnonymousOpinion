@@ -12,15 +12,29 @@ import SCLAlertView
 class PuanVerViewController: UIViewController , UITableViewDataSource, UITableViewDelegate{
     
     
-
+    @IBOutlet weak var puanVerView: UIView!
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        //view işlemleri
+        puanVerView.isHidden = true
+        puanVerView.backgroundColor = UIColor.white
+        puanVerView.layer.shadowColor = UIColor.gray.cgColor
+        puanVerView.layer.shadowOpacity = 0.6
+        puanVerView.layer.shadowOffset = CGSize.zero
+        puanVerView.layer.shadowRadius = 5
+        puanVerView.cornerRadius()
+        
+        
+        
         tableView.delegate = self
         tableView.dataSource = self
-    
+        
         
         let rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named: "info"), style: .done, target: self, action: #selector(PuanVerViewController.infoTapped))
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
@@ -40,7 +54,7 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
             self.dismiss(animated: true, completion: nil)
             self.fetchQuestions()
         }
-    
+        
         
         
     }
@@ -78,7 +92,6 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
         DispatchQueue.main.async {
             
             //PHP DOSYASINA GÖNDERİLECEK URL OLUŞTURULUYOR
-            
             var postString = base_url + "/soru/sorulari_getir.php"
             let myUrl = URL(string: postString )
             
@@ -115,12 +128,12 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
     
     @objc func infoTapped(){
         
+
+        tableView.isUserInteractionEnabled = false
+        puanVerView.isHidden = false
+        blurView.isHidden = false
         
-        // Add a text field
-        let alert = SCLAlertView()
-        alert.showInfo("Önemli Bilgi", subTitle: "Bilgilerinizin Gizliliği İçin Bkz. Yazılım Anlaşması")
-
+        
     }
-    
-
+  
 }
