@@ -21,6 +21,9 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+
+        
         searchBar.becomeFirstResponder()
         searchBar.showsCancelButton = false
         searchBar.placeholder = "e-posta veya isim..."

@@ -13,6 +13,7 @@ class PuanVerTableViewCell: UITableViewCell {
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var soruLabel: UILabel!
     
+    @IBOutlet weak var listeBasiLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
