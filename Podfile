@@ -12,6 +12,7 @@ target 'Come-To-Yourself' do
   pod 'StatusAlert', '~> 1.1.1'
   pod 'SwiftGifOrigin'
   pod 'SCLAlertView'
+  pod 'SPAlert'
 
 
 

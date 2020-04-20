@@ -8,6 +8,7 @@
 
 import UIKit
 import SCLAlertView
+import SPAlert
 
 class PuanVerViewController: UIViewController , UITableViewDataSource, UITableViewDelegate{
     
@@ -25,12 +26,20 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
     
     @IBOutlet weak var blurView: UIVisualEffectView!
     
+    @IBOutlet weak var soruPopLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //geri dönüş butonu deaktif etme
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+
+        //navigation bar gradient renkleri ayarlanır
+        self.navigationController?.navigationBar.setGradientBackground(colors: [
+            UIColor.red.cgColor,
+            UIColor.green.cgColor,
+            UIColor.blue.cgColor
+        ])
 
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
@@ -87,7 +96,6 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SorularCell") as! PuanVerTableViewCell
         
-        cell.shadowView.cornerRadius()
         
         //el ile gölgelendirme veriliyor
         cell.shadowView.layer.shadowColor = UIColor.gray.cgColor
@@ -107,8 +115,10 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
         
         cell.listeBasiLabel.text = "\(indexPath.row + 1)"
         cell.listeBasiLabel.layer.masksToBounds = true
-        cell.listeBasiLabel.layer.cornerRadius = 10
         
+        cell.listeBasiLabel.layer.cornerRadius = 7
+        cell.shadowView.layer.cornerRadius = 7
+
         cell.soruLabel.text = sorularJson[indexPath.row].soru
         
         //SEÇİM YAPILACAK HÜCRENİN ARKA PLAN RENGİNİ AYARLIYORUZ.
@@ -121,6 +131,24 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 150
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        UIView.transition(with: view, duration: 0.4, options: .transitionCrossDissolve, animations: {
+            
+            self.navigationController?.setNavigationBarHidden(true, animated: false)
+            self.tabBarController?.tabBar.isHidden = true
+            self.tableView.isUserInteractionEnabled = false
+            self.puanVerView.isHidden = false
+            self.blurView.isHidden = false
+            
+            self.soruPopLabel.text = sorularJson[indexPath.row].soru
+            
+            print("Seçilen Sorunun id'si" + sorularJson[indexPath.row].id )
+            
+        })
         
     }
     
@@ -160,21 +188,11 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
             task.resume()
         }
         
-        
     }
     
+    //sağdaki buton navigationdaki
     @objc func infoTapped(){
         
-        
-        UIView.transition(with: view, duration: 0.4, options: .transitionCrossDissolve, animations: {
-            
-            self.navigationController?.setNavigationBarHidden(true, animated: false)
-            self.tabBarController?.tabBar.isHidden = true
-            self.tableView.isUserInteractionEnabled = false
-            self.puanVerView.isHidden = false
-            self.blurView.isHidden = false
-            
-        })
         
         
     }
@@ -190,35 +208,35 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
 
         //gölge ekleme
         //btn1
-        btn1.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
-        btn1.layer.shadowOffset = CGSize(width: 3, height: 3)
+        btn1.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.27).cgColor
+        btn1.layer.shadowOffset = CGSize(width: 1, height: 1)
         btn1.layer.shadowOpacity = 1.0
-        btn1.layer.shadowRadius = 4
+        btn1.layer.shadowRadius = 3
         btn1.layer.masksToBounds = false
         
         //btn2
-        btn2.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
-        btn2.layer.shadowOffset = CGSize(width: 3, height: 3)
+        btn2.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.27).cgColor
+        btn2.layer.shadowOffset = CGSize(width: 1, height: 1)
         btn2.layer.shadowOpacity = 1.0
-        btn2.layer.shadowRadius = 4
+        btn2.layer.shadowRadius = 3
         btn2.layer.masksToBounds = false
         
-        btn3.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
-        btn3.layer.shadowOffset = CGSize(width: 3, height: 3)
+        btn3.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.27).cgColor
+        btn3.layer.shadowOffset = CGSize(width: 1, height: 1)
         btn3.layer.shadowOpacity = 1.0
-        btn3.layer.shadowRadius = 4
+        btn3.layer.shadowRadius = 3
         btn3.layer.masksToBounds = false
         
-        btn4.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
-        btn4.layer.shadowOffset = CGSize(width: 3, height: 3)
+        btn4.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.27).cgColor
+        btn4.layer.shadowOffset = CGSize(width: 1, height: 1)
         btn4.layer.shadowOpacity = 1.0
-        btn4.layer.shadowRadius = 4
+        btn4.layer.shadowRadius = 3
         btn4.layer.masksToBounds = false
         
-        btn5.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
-        btn5.layer.shadowOffset = CGSize(width: 3, height: 3)
+        btn5.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.27).cgColor
+        btn5.layer.shadowOffset = CGSize(width: 1, height: 1)
         btn5.layer.shadowOpacity = 1.0
-        btn5.layer.shadowRadius = 4
+        btn5.layer.shadowRadius = 3
         btn5.layer.masksToBounds = false
         
         
@@ -238,14 +256,42 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
                self.blurView.isHidden = true
         })
             
-           
+    }
+    
+    
+    @IBAction func btn1Tapped(_ sender: Any) {
+        
+        puanVerProcess(puan : 1)
+        
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.04
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: puanVerView.center.x + 5, y: puanVerView.center.y - 5))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: puanVerView.center.x - 5, y: puanVerView.center.y + 5))
+        puanVerView.layer.add(animation, forKey: "position")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            SPAlert.present(title: "Puanlama Başarılı", preset: .done)
             
-        
-        
-        
-        
+            UIView.transition(with: self.view, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                self.puanVerView.isHidden = true
+                   self.navigationController?.setNavigationBarHidden(false, animated: false)
+                   self.tabBarController?.tabBar.isHidden = false
+                   self.tableView.isUserInteractionEnabled = true
+                   self.view.backgroundColor = UIColor.clear
+                   self.blurView.isHidden = true
+            })
+            
+        }
 
         
     }
+    
+    func puanVerProcess( puan : Int ) {
+        
+        
+    }
+    
     
 }

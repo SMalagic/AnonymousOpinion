@@ -200,6 +200,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SPAlert/SPAlert.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/StatusAlert/StatusAlert.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework"
 fi
@@ -207,6 +208,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SPAlert/SPAlert.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/StatusAlert/StatusAlert.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework"
 fi
