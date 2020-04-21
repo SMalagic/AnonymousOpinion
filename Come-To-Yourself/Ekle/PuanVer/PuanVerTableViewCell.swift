@@ -10,14 +10,17 @@ import UIKit
 
 class PuanVerTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var soruLabel: UILabel!
     
-    @IBOutlet weak var listeBasiLabel: UILabel!
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    @IBOutlet weak var btn3: UIButton!
+    @IBOutlet weak var btn4: UIButton!
+    @IBOutlet weak var btn5: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -10,26 +10,25 @@ import UIKit
 import SCLAlertView
 import SPAlert
 
-class PuanVerViewController: UIViewController , UITableViewDataSource, UITableViewDelegate{
+class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    @IBOutlet weak var puanVerView: UIView!
+    
+    var puan = 0
+    var indexPathRow = 0
+    
+    //tüm puanlar sırayla bu dizide tutulacak
+    //soru sayısı değişince burası da değişmelidir
+    var puanArray = [3,3,3,3,3,3]
+    
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var btn1: UIButton!
-    @IBOutlet weak var btn2: UIButton!
-    @IBOutlet weak var btn3: UIButton!
-    @IBOutlet weak var btn4: UIButton!
-    @IBOutlet weak var btn5: UIButton!
-    
-    @IBOutlet weak var closeImgView: UIImageView!
-    
-    @IBOutlet weak var blurView: UIVisualEffectView!
-    
-    @IBOutlet weak var soruPopLabel: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         //geri dönüş butonu deaktif etme
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -40,28 +39,7 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
             UIColor.green.cgColor,
             UIColor.blue.cgColor
         ])
-
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-           closeImgView.isUserInteractionEnabled = true
-           closeImgView.addGestureRecognizer(tapGestureRecognizer)
-        
-        
-        setupButtons()
-        
-        //view işlemleri
-        puanVerView.isHidden = true
-        puanVerView.backgroundColor = UIColor.white
-        puanVerView.layer.shadowColor = UIColor.gray.cgColor
-        puanVerView.layer.shadowOpacity = 0.6
-        puanVerView.layer.shadowOffset = CGSize.zero
-        puanVerView.layer.shadowRadius = 5
-        puanVerView.cornerRadius()
-        
-        
-        
-        tableView.delegate = self
-        tableView.dataSource = self
+     
         
         
         let rightBarButtonItem = UIBarButtonItem.init(image: UIImage(named: "info"), style: .done, target: self, action: #selector(PuanVerViewController.infoTapped))
@@ -83,74 +61,104 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
             self.fetchQuestions()
         }
         
-        
-        
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if sorularJson.count == 0{
+            print(puanArray)
+        }
         return sorularJson.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SorularCell") as! PuanVerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SoruCell") as! PuanVerTableViewCell
         
+        //Tüm butonlara aksiyon eklemesi yapacağız
+        cell.btn1.addTarget(self, action: #selector(btn1Tapped(_:)), for: .touchUpInside)
+        cell.btn1.tag = indexPath.row
+            cell.btn2.addTarget(self, action: #selector(btn2Tapped(_:)), for: .touchUpInside)
+            cell.btn2.tag = indexPath.row
+        cell.btn3.addTarget(self, action: #selector(btn3Tapped(_:)), for: .touchUpInside)
+        cell.btn3.tag = indexPath.row
+            cell.btn4.addTarget(self, action: #selector(btn4Tapped(_:)), for: .touchUpInside)
+            cell.btn4.tag = indexPath.row
+        cell.btn5.addTarget(self, action: #selector(btn5Tapped(_:)), for: .touchUpInside)
+        cell.btn5.tag = indexPath.row
         
-        //el ile gölgelendirme veriliyor
-        cell.shadowView.layer.shadowColor = UIColor.gray.cgColor
-        cell.shadowView.layer.shadowOpacity = 0.6
-        cell.shadowView.layer.shadowOffset = CGSize.zero
-        cell.shadowView.layer.shadowRadius = 5
-        
-
-
-        if indexPath.row % 2 == 0{
-            cell.shadowView.backgroundColor = UIColor.init(displayP3Red: 64/255, green: 144/255, blue: 224/255, alpha: 1.0)
-        }
-        else{
-            cell.shadowView.backgroundColor = UIColor.init(displayP3Red: 255/255, green: 156/255, blue: 99/255, alpha: 1.0)
-        }
-        
-        
-        cell.listeBasiLabel.text = "\(indexPath.row + 1)"
-        cell.listeBasiLabel.layer.masksToBounds = true
-        
-        cell.listeBasiLabel.layer.cornerRadius = 7
-        cell.shadowView.layer.cornerRadius = 7
-
         cell.soruLabel.text = sorularJson[indexPath.row].soru
+        
         
         //SEÇİM YAPILACAK HÜCRENİN ARKA PLAN RENGİNİ AYARLIYORUZ.
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.clear
         cell.selectedBackgroundView = backgroundView
         
-        return cell
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 150
+        return cell
         
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //CELL İÇERİSİNDE BUTONA TARGET VERİLDİ
+    @objc func btn1Tapped(_ sender: UIButton){
+        let buttonRow = sender.tag
+        print("İndexpath : \(buttonRow) -- Buton : 1")
         
-        UIView.transition(with: view, duration: 0.4, options: .transitionCrossDissolve, animations: {
-            
-            self.navigationController?.setNavigationBarHidden(true, animated: false)
-            self.tabBarController?.tabBar.isHidden = true
-            self.tableView.isUserInteractionEnabled = false
-            self.puanVerView.isHidden = false
-            self.blurView.isHidden = false
-            
-            self.soruPopLabel.text = sorularJson[indexPath.row].soru
-            
-            print("Seçilen Sorunun id'si" + sorularJson[indexPath.row].id )
-            
-        })
+        puanArray[buttonRow] = 1
         
+        sorularJson.remove(at: buttonRow)
+        self.tableView.reloadData()
     }
+    @objc func btn2Tapped(_ sender: UIButton){
+        let buttonRow = sender.tag
+        print("İndexpath : \(buttonRow) -- Buton : 2")
+        
+        puanArray[buttonRow] = 2
+        
+        sorularJson.remove(at: buttonRow)
+
+        self.tableView.reloadData()
+
+    }
+    @objc func btn3Tapped(_ sender: UIButton){
+        let buttonRow = sender.tag
+        print("İndexpath : \(buttonRow) -- Buton : 3")
+        
+        puanArray[buttonRow] = 3
+
+        sorularJson.remove(at: buttonRow)
+        self.tableView.reloadData()
+
+    }
+    @objc func btn4Tapped(_ sender: UIButton){
+        let buttonRow = sender.tag
+        print("İndexpath : \(buttonRow) -- Buton : 4")
+        
+        puanArray[buttonRow] = 4
+
+        sorularJson.remove(at: buttonRow)
+        self.tableView.reloadData()
+
+    }
+    @objc func btn5Tapped(_ sender: UIButton){
+        let buttonRow = sender.tag
+        print("İndexpath : \(buttonRow) -- Buton : 5")
+        
+        puanArray[buttonRow] = 5
+
+        sorularJson.remove(at: buttonRow)
+        self.tableView.reloadData()
+
+    }
+    
+    
+    
+    
+    
     
     func fetchQuestions(){
         
@@ -178,6 +186,8 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
                         
                         print(sorularJson)
                         self.tableView.reloadData()
+                        
+
                     }
                     catch let jsonError{
                         print("Fail", jsonError)
@@ -194,104 +204,8 @@ class PuanVerViewController: UIViewController , UITableViewDataSource, UITableVi
     @objc func infoTapped(){
         
         
-        
     }
   
-    func setupButtons(){
-        
-        //radius ekleme
-        btn1.layer.cornerRadius = 14
-        btn2.layer.cornerRadius = 14
-        btn3.layer.cornerRadius = 14
-        btn4.layer.cornerRadius = 14
-        btn5.layer.cornerRadius = 14
-
-        //gölge ekleme
-        //btn1
-        btn1.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.27).cgColor
-        btn1.layer.shadowOffset = CGSize(width: 1, height: 1)
-        btn1.layer.shadowOpacity = 1.0
-        btn1.layer.shadowRadius = 3
-        btn1.layer.masksToBounds = false
-        
-        //btn2
-        btn2.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.27).cgColor
-        btn2.layer.shadowOffset = CGSize(width: 1, height: 1)
-        btn2.layer.shadowOpacity = 1.0
-        btn2.layer.shadowRadius = 3
-        btn2.layer.masksToBounds = false
-        
-        btn3.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.27).cgColor
-        btn3.layer.shadowOffset = CGSize(width: 1, height: 1)
-        btn3.layer.shadowOpacity = 1.0
-        btn3.layer.shadowRadius = 3
-        btn3.layer.masksToBounds = false
-        
-        btn4.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.27).cgColor
-        btn4.layer.shadowOffset = CGSize(width: 1, height: 1)
-        btn4.layer.shadowOpacity = 1.0
-        btn4.layer.shadowRadius = 3
-        btn4.layer.masksToBounds = false
-        
-        btn5.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.27).cgColor
-        btn5.layer.shadowOffset = CGSize(width: 1, height: 1)
-        btn5.layer.shadowOpacity = 1.0
-        btn5.layer.shadowRadius = 3
-        btn5.layer.masksToBounds = false
-        
-        
-    }
-    
-    
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
-
-      
-        UIView.transition(with: view, duration: 0.4, options: .transitionCrossDissolve, animations: {
-            self.puanVerView.isHidden = true
-               self.navigationController?.setNavigationBarHidden(false, animated: false)
-               self.tabBarController?.tabBar.isHidden = false
-               self.tableView.isUserInteractionEnabled = true
-               self.view.backgroundColor = UIColor.clear
-               self.blurView.isHidden = true
-        })
-            
-    }
-    
-    
-    @IBAction func btn1Tapped(_ sender: Any) {
-        
-        puanVerProcess(puan : 1)
-        
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = 0.04
-        animation.repeatCount = 4
-        animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: puanVerView.center.x + 5, y: puanVerView.center.y - 5))
-        animation.toValue = NSValue(cgPoint: CGPoint(x: puanVerView.center.x - 5, y: puanVerView.center.y + 5))
-        puanVerView.layer.add(animation, forKey: "position")
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            SPAlert.present(title: "Puanlama Başarılı", preset: .done)
-            
-            UIView.transition(with: self.view, duration: 0.4, options: .transitionCrossDissolve, animations: {
-                self.puanVerView.isHidden = true
-                   self.navigationController?.setNavigationBarHidden(false, animated: false)
-                   self.tabBarController?.tabBar.isHidden = false
-                   self.tableView.isUserInteractionEnabled = true
-                   self.view.backgroundColor = UIColor.clear
-                   self.blurView.isHidden = true
-            })
-            
-        }
-
-        
-    }
-    
-    func puanVerProcess( puan : Int ) {
-        
-        
-    }
-    
+   
     
 }

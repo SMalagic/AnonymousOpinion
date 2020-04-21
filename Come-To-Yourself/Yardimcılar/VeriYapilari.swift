@@ -39,3 +39,6 @@ struct Soru: Decodable{
     let created_at:         String
 }
 var sorularJson = [Soru]()
+
+
+var soruPuanlari = [0,0,0,0,0,0]
