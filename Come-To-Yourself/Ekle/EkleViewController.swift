@@ -147,7 +147,6 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
         cell.shadowView.layer.shadowOpacity = 0.6
         cell.shadowView.layer.shadowOffset = CGSize.zero
         cell.shadowView.layer.shadowRadius = 5
-        
         cell.shadowView.cornerRadius()
         
         //SEÇİM YAPILACAK HÜCRENİN ARKA PLAN RENGİNİ AYARLIYORUZ.

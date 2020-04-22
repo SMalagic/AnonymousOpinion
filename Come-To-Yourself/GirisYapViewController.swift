@@ -92,6 +92,7 @@ class GirisYapViewController: UIViewController {
                                     DispatchQueue.main.async {
                                         
                                         kullanici_adi =         responseJSON["adsoyad"] as! String
+                                        kullanici_id =          responseJSON["id"] as! String
                                         kullanici_mail =        responseJSON["mail"] as! String
                                         kullanici_sifre =       responseJSON["sifre"] as! String
                                         kullanici_puan =        responseJSON["puan"] as! Int

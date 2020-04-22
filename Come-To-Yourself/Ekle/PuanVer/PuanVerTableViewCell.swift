@@ -18,6 +18,8 @@ class PuanVerTableViewCell: UITableViewCell {
     @IBOutlet weak var btn4: UIButton!
     @IBOutlet weak var btn5: UIButton!
     
+    @IBOutlet weak var shadowView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

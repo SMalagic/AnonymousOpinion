@@ -9,14 +9,15 @@
 import Foundation
 
 //Api Bilgileri---------------------
-var base_url = "https://ill-natured-violati.000webhostapp.com/api"
-//var base_url = "http://192.168.1.37:8888/cometoyourselfapi/api"
+//var base_url = "https://ill-natured-violati.000webhostapp.com/api"
+var base_url = "http://192.168.1.33:8888/cometoyourselfapi/api"
 
 //Kullanıcı Bilgileri---------------
-var kullanici_adi = String()
-var kullanici_mail = String()
-var kullanici_sifre = String()
-var kullanici_puan = Int()
+var kullanici_id =     String()
+var kullanici_adi =    String()
+var kullanici_mail =   String()
+var kullanici_sifre =  String()
+var kullanici_puan =   Int()
 var kullanici_created_at = String()
 
 //MODELİMİZ

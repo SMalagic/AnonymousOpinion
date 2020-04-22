@@ -13,6 +13,7 @@ target 'Come-To-Yourself' do
   pod 'SwiftGifOrigin'
   pod 'SCLAlertView'
   pod 'SPAlert'
+  pod 'SwiftOverlays', '~> 5.0.1'
 
 
 
