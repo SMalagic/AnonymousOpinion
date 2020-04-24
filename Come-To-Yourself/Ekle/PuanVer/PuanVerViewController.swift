@@ -28,6 +28,9 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TABLOADKİ SONDAKİ ÇİZGİLERİ KALDIRIR
+        tableView.tableFooterView = UIView()
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -116,8 +119,6 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.btn5.layer.cornerRadius = 15
         
         
-        
-        
         return cell
         
     }
@@ -189,7 +190,9 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
                                 DispatchQueue.main.async {
                                     self.removeAllOverlays()
                                     sorularJson.remove(at: indexPathRow_param)
-                                    self.tableView.reloadData()
+                                    
+                                    self.tabloReload()
+                                    
                                     self.view.isUserInteractionEnabled = true
 
                                 }
@@ -239,8 +242,9 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
                         sorularJson = try decoder.decode([Soru].self, from: data)
                         
                         print(sorularJson)
-                        self.tableView.reloadData()
                         
+                        self.tabloReload()
+
                         
                     }
                     catch let jsonError{
@@ -257,6 +261,16 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
     //sağdaki buton navigationdaki
     @objc func infoTapped(){
         
+        
+    }
+    
+    
+    func tabloReload(){
+        
+        UIView.transition(with: self.tableView,
+                          duration: 0.7,
+                          options: .transitionCrossDissolve,
+        animations: { self.tableView.reloadData() })
         
     }
     
