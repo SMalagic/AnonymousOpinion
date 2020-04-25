@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PopupDialog
 
 
 
@@ -22,7 +23,7 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
         super.viewDidLoad()
         
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-
+        
         
         searchBar.becomeFirstResponder()
         searchBar.showsCancelButton = false
@@ -48,24 +49,33 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        searchBar.endEditing(true)
-        print(searchBar.text)
         
-        
-        //KULLANICIYA BEKLEMESİ SÖYLENECEK
-        let alert = UIAlertController(title: nil, message: "Kişi Bulunuyor...", preferredStyle: .alert)
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.dismiss(animated: true, completion: nil)
-            self.kullaniciBul()
+        if searchBar.text != ""{
+            
+            searchBar.endEditing(true)
+            print(searchBar.text)
+            
+            
+            //KULLANICIYA BEKLEMESİ SÖYLENECEK
+            let alert = UIAlertController(title: nil, message: "Kişi Bulunuyor...", preferredStyle: .alert)
+            let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.style = UIActivityIndicatorView.Style.gray
+            loadingIndicator.startAnimating();
+            alert.view.addSubview(loadingIndicator)
+            present(alert, animated: true, completion: nil)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.dismiss(animated: true, completion: nil)
+                self.kullaniciBul()
+            }
+            
         }
+        else{
+            alertFunction(message: "Arama Bölümü Boş Bırakılamaz")
+        }
+        
+        
         
         
     }
@@ -81,7 +91,6 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
             ]
             
             let jsonData = try? JSONSerialization.data(withJSONObject: json)
-            
             // create post request
             let url = URL(string: base_url + "/kullanici/kullanici_bul.php")!
             var request = URLRequest(url: url)
@@ -102,12 +111,29 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
                     do{
                         let decoder = JSONDecoder()
                         kullanicilarJson = try decoder.decode([Kullanici].self, from: data)
-                        
-                        if kullanicilarJson[0].id != "boş" {
-                            self.tableView.reloadData()
-                        }
-                        
                         print(kullanicilarJson)
+
+                        if kullanicilarJson[0].id == "boş" {
+                            
+                            kullanicilarJson.removeAll()
+                            self.tableView.reloadData()
+                            
+                            //ALERT BÖLÜMÜ------------------
+                            let title = "Bulunamadı. Belki de Üye Değildir. Hemen Eklemek İstediğin Arkadaşının Mail Adresini Buraya Gir. Merak Etme Haberi Olmayacak"
+                            let message = ""
+                            let popup = PopupDialog(title: title, message: message)
+                            popup.transitionStyle = .fadeIn
+                            let buttonOne = CancelButton(title: "Tamam") {
+                                
+                                self.performSegue(withIdentifier: "toMailSegue", sender: nil)
+                                
+                                
+                            }
+                            popup.addButtons([buttonOne])
+                            self.present(popup, animated: true, completion: nil)
+                            
+                        }
+                        self.tableView.reloadData()
                     }
                     catch let jsonError{
                         print("Fail", jsonError)
@@ -117,13 +143,10 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
             task.resume()
         }
         
-        
-        
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
+        
         if kullanicilarJson.count == 0 {
             self.tableView.setEmptyMessage("Kişilerinizi Arayın ve Puan Verin")
         } else {
@@ -131,7 +154,7 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
         }
         
         return kullanicilarJson.count
-
+        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90

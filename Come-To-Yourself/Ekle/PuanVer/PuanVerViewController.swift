@@ -74,6 +74,7 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if sorularJson.count == 0{
             print(puanArray)
+            
         }
         return sorularJson.count
     }
@@ -166,9 +167,10 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 
                 let json: [String: Any] = [
-                    "kullanici_id":  kullanici_id_param,
-                    "soru_id":       sorularJson[indexPathRow_param].id,
-                    "puan" :         puan_param
+                    "kendi_kullanici_id" : kullanici_id,
+                    "puan_kullanici_id":   kullanici_id_param,
+                    "soru_id":             sorularJson[indexPathRow_param].id,
+                    "puan" :               puan_param
                 ]
                 
                 let jsonData = try? JSONSerialization.data(withJSONObject: json)
@@ -188,9 +190,9 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
                             let cevapValue =  responseJSON["cevap"] as? String
                             if cevapValue == "1"{
                                 DispatchQueue.main.async {
+                                    
                                     self.removeAllOverlays()
                                     sorularJson.remove(at: indexPathRow_param)
-                                    
                                     self.tabloReload()
                                     
                                     self.view.isUserInteractionEnabled = true
@@ -198,12 +200,18 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
                                 }
                             }
                             else if cevapValue == "0"{
+                                
                                 DispatchQueue.main.async {
+                             
                                     self.removeAllOverlays()
-                                    self.alertFunction(message: "Error")
-                                    self.view.isUserInteractionEnabled = false
+                                    sorularJson.remove(at: indexPathRow_param)
+                                    self.tabloReload()
+                                    self.alertFunction(message: "Daha Önce Bu Soruya Puan Verdiniz...")
+                                    self.view.isUserInteractionEnabled = true
 
                                 }
+                                
+                                
                             }
                         }
                     }
@@ -239,6 +247,7 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
                     guard let data = data else {return}
                     do{
                         let decoder = JSONDecoder()
+                        sorularJson.removeAll()
                         sorularJson = try decoder.decode([Soru].self, from: data)
                         
                         print(sorularJson)
@@ -267,10 +276,15 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tabloReload(){
         
-        UIView.transition(with: self.tableView,
-                          duration: 0.7,
-                          options: .transitionCrossDissolve,
-        animations: { self.tableView.reloadData() })
+//        UIView.transition(with: self.tableView,
+//                          duration: 0.7,
+//                          options: .transitionCrossDissolve,
+//        animations: { self.tableView.reloadData() })
+//
+        
+        let range = NSMakeRange(0, self.tableView.numberOfSections)
+        let sections = NSIndexSet(indexesIn: range)
+        self.tableView.reloadSections(sections as IndexSet, with: .automatic)
         
     }
     

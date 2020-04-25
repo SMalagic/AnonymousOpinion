@@ -18,6 +18,8 @@
 		F84CF7D92448BB8100F591FC /* PuanVerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84CF7D82448BB8100F591FC /* PuanVerTableViewCell.swift */; };
 		F84F78D3243E53A400E869E0 /* KayitOlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */; };
 		F84F78D5243E56B500E869E0 /* Yardimcilar_Dizayn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84F78D4243E56B500E869E0 /* Yardimcilar_Dizayn.swift */; };
+		F858F9BD2454B63700BB4675 /* MailEkleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858F9BC2454B63700BB4675 /* MailEkleViewController.swift */; };
+		F858F9BF2454CA5500BB4675 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858F9BE2454CA5500BB4675 /* TabBarViewController.swift */; };
 		F896140C24462DAD000C45A0 /* apple.gif in Resources */ = {isa = PBXBuildFile; fileRef = F896140B24462DAD000C45A0 /* apple.gif */; };
 		F896140E24463154000C45A0 /* ciftetelli.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F896140D24463154000C45A0 /* ciftetelli.mp3 */; };
 		F8ADCD08243E387300E22D31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ADCD07243E387300E22D31 /* AppDelegate.swift */; };
@@ -43,6 +45,8 @@
 		F84CF7D82448BB8100F591FC /* PuanVerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuanVerTableViewCell.swift; sourceTree = "<group>"; };
 		F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KayitOlViewController.swift; sourceTree = "<group>"; };
 		F84F78D4243E56B500E869E0 /* Yardimcilar_Dizayn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yardimcilar_Dizayn.swift; sourceTree = "<group>"; };
+		F858F9BC2454B63700BB4675 /* MailEkleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailEkleViewController.swift; sourceTree = "<group>"; };
+		F858F9BE2454CA5500BB4675 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F896140B24462DAD000C45A0 /* apple.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = apple.gif; sourceTree = "<group>"; };
 		F896140D24463154000C45A0 /* ciftetelli.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ciftetelli.mp3; sourceTree = "<group>"; };
 		F8ADCD04243E387300E22D31 /* Come-To-Yourself.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Come-To-Yourself.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +112,7 @@
 			children = (
 				F832C3872440224C00AF0841 /* EkleViewController.swift */,
 				F84CF7D324488E8100F591FC /* EkleTableViewCell.swift */,
+				F858F9BB2454B5BC00BB4675 /* MailEkle */,
 				F84CF7D52448BB2600F591FC /* PuanVer */,
 			);
 			path = Ekle;
@@ -128,6 +133,14 @@
 				F84CF7D82448BB8100F591FC /* PuanVerTableViewCell.swift */,
 			);
 			path = PuanVer;
+			sourceTree = "<group>";
+		};
+		F858F9BB2454B5BC00BB4675 /* MailEkle */ = {
+			isa = PBXGroup;
+			children = (
+				F858F9BC2454B63700BB4675 /* MailEkleViewController.swift */,
+			);
+			path = MailEkle;
 			sourceTree = "<group>";
 		};
 		F8ADCCFB243E387200E22D31 = {
@@ -158,6 +171,7 @@
 				F832C3862440223800AF0841 /* Ekle */,
 				F832C3892440225600AF0841 /* Profil */,
 				F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */,
+				F858F9BE2454CA5500BB4675 /* TabBarViewController.swift */,
 				F8ADCD1D243E40C900E22D31 /* GirisYapViewController.swift */,
 				F81FCA2B2446253500302AA8 /* TanitimViewController.swift */,
 				F8ADCD0F243E387300E22D31 /* Main.storyboard */,
@@ -287,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F858F9BF2454CA5500BB4675 /* TabBarViewController.swift in Sources */,
 				F84F78D3243E53A400E869E0 /* KayitOlViewController.swift in Sources */,
 				F83968E6243FE55300AD6C2A /* VeriYapilari.swift in Sources */,
 				F84CF7D72448BB6A00F591FC /* PuanVerViewController.swift in Sources */,
@@ -299,6 +314,7 @@
 				F8ADCD08243E387300E22D31 /* AppDelegate.swift in Sources */,
 				F832C38B2440226700AF0841 /* ProfilViewController.swift in Sources */,
 				F8ADCD1E243E40C900E22D31 /* GirisYapViewController.swift in Sources */,
+				F858F9BD2454B63700BB4675 /* MailEkleViewController.swift in Sources */,
 				F832C3882440224C00AF0841 /* EkleViewController.swift in Sources */,
 				F8ADCD0A243E387300E22D31 /* SceneDelegate.swift in Sources */,
 			);

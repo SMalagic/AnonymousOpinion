@@ -72,6 +72,76 @@
             </objects>
             <point key="canvasLocation" x="1101.5999999999999" y="-489.3553223388306"/>
         </scene>
+        <!--Mail Ekle View Controller-->
+        <scene sceneID="cos-O5-zcv">
+            <objects>
+                <viewController id="iAe-8c-fG6" customClass="MailEkleViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jym-Jm-kO7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Whf-Ob-MrE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nVz-lb-EuR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJp-mZ-SYw">
+                                <rect key="frame" x="16" y="296" width="343" height="239"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mail Adresine Davetiye Gönderin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyL-Da-Z26">
+                                        <rect key="frame" x="23" y="100" width="300" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="örn serkanmalagic@icloud.com" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Uvk-Wr-c8y">
+                                        <rect key="frame" x="23" y="152" width="300" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yeni Bir Kullanıcı Ekleyin +" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYP-BC-rBY">
+                                        <rect key="frame" x="23" y="22" width="300" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYQ-nl-ne3" customClass="LoadingButton" customModule="Come_To_Yourself" customModuleProvider="target">
+                                <rect key="frame" x="16" y="549" width="343" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99995702509999995" green="0.61259067060000005" blue="0.38960069419999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                <state key="normal" title="Davetiye Gönder">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="gonderButtonTapped:" destination="iAe-8c-fG6" eventType="touchUpInside" id="5dn-Fq-Bk8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hsy-Aa-Zt4"/>
+                    <connections>
+                        <outlet property="gonderButton" destination="HYQ-nl-ne3" id="eTb-bE-FYJ"/>
+                        <outlet property="mailText" destination="Uvk-Wr-c8y" id="jyx-OW-V6T"/>
+                        <outlet property="shadowView" destination="eJp-mZ-SYw" id="Dgq-Uh-74F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7p1-rF-cuc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2048.8000000000002" y="-366.56671664167919"/>
+        </scene>
         <!--Ekle View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
@@ -160,6 +230,7 @@
                     <connections>
                         <outlet property="tableView" destination="nkN-jd-9Y2" id="XpA-Hg-Kmc"/>
                         <segue destination="b2w-o1-WvU" kind="show" identifier="toPuanVerSegue" id="lMJ-qO-Zck"/>
+                        <segue destination="iAe-8c-fG6" kind="show" identifier="toMailSegue" id="EKg-iZ-ocR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -585,10 +656,10 @@
             </objects>
             <point key="canvasLocation" x="1102" y="1057"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="TabBarViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="3SE-4R-ZtC"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -672,7 +743,7 @@
         <image name="burger-king-logo-png--500" width="500" height="500"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
-        <image name="logo2" width="381" height="321"/>
+        <image name="logo2" width="190.5" height="160.5"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
         <image name="star" width="64" height="64"/>
     </resources>
