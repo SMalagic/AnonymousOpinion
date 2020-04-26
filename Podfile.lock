@@ -2,6 +2,7 @@ PODS:
   - DynamicBlurView (4.0.0)
   - PopupDialog (1.1.1):
     - DynamicBlurView (~> 4.0)
+  - PTCardTabBar (1.0.1)
   - SCLAlertView (0.8)
   - SPAlert (2.1.4)
   - StatusAlert (1.1.1)
@@ -10,6 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - PopupDialog (~> 1.1)
+  - PTCardTabBar
   - SCLAlertView
   - SPAlert
   - StatusAlert (~> 1.1.1)
@@ -20,6 +22,7 @@ SPEC REPOS:
   trunk:
     - DynamicBlurView
     - PopupDialog
+    - PTCardTabBar
     - SCLAlertView
     - SPAlert
     - StatusAlert
@@ -29,12 +32,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   DynamicBlurView: ccf9acd2b20c883cc2c72e3524a04d8d3ee20533
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
+  PTCardTabBar: 9112a6d4eb2b73da9cf4e7f3aefe04504479cf98
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SPAlert: 1a8afa1c6ac86a82ab5b2cfdf7f9a51e68cb6c0c
   StatusAlert: a18ec3c33d36a06d4479c1f2b15ffac67aaf7ab1
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftOverlays: ab459ea9194b0e96aaccaa00e9ead1bf6d46eef1
 
-PODFILE CHECKSUM: 5be739a7037613e1e2f6527b355869f1e2128324
+PODFILE CHECKSUM: 380e1704c2e089392188265b031cfe057d8715a2
 
 COCOAPODS: 1.9.1

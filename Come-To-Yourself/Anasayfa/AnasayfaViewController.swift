@@ -10,13 +10,14 @@ import UIKit
 
 class AnasayfaViewController: UIViewController {
 
-    @IBOutlet weak var homeView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        homeView.cornerRadius()
-        homeView.dropShadow()
         
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "Futura", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+
+        
+       
    
     }
     

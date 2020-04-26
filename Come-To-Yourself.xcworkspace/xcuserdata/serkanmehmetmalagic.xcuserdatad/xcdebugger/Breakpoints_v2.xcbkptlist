@@ -30,9 +30,9 @@
             filePath = "Come-To-Yourself/Ekle/PuanVer/PuanVerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "yuklePuan(kullanici_id_param:indexPathRow_param:puan_param:)"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "yuklePuan(puan_kullanici_id_param:indexPathRow_param:puan_param:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -46,10 +46,10 @@
             filePath = "Come-To-Yourself/Ekle/PuanVer/PuanVerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "PuanVerViewController"
-            landmarkType = "3">
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "yuklePuan(puan_kullanici_id_param:indexPathRow_param:puan_param:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -62,10 +62,10 @@
             filePath = "Come-To-Yourself/Ekle/PuanVer/PuanVerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "PuanVerViewController"
-            landmarkType = "3">
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "btn1Tapped(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

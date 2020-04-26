@@ -22,15 +22,16 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
         
-        searchBar.becomeFirstResponder()
         searchBar.showsCancelButton = false
+    
         searchBar.placeholder = "e-posta veya isim..."
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
         navigationItem.titleView = searchBar
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+
         
         //DONE BUTTON KLAVYENİN ÜZERİNDEKİ GİZLEME BUTONU--->TÜM TEXTFİELDLAR
         var toolbar = UIToolbar()

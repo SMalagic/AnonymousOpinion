@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Anasayfa View Controller-->
+        <!--Genel Bilgiler-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="AnasayfaViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,62 +15,29 @@
                         <viewControllerLayoutGuide type="bottom" id="r0W-TM-cD5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RmY-d3-Jnl">
-                                <rect key="frame" x="0.0" y="44" width="375" height="707"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfd-7O-9gm">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XmU-2R-XHD">
-                                                <rect key="frame" x="9" y="8" width="356" height="689"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bilgilerin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSt-nf-KcI">
-                                                        <rect key="frame" x="17" y="15" width="311" height="52"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="31"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="750" id="hSA-Zf-tpI"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="tfd-7O-9gm" secondAttribute="bottom" id="AaP-if-fhY"/>
-                                    <constraint firstItem="tfd-7O-9gm" firstAttribute="leading" secondItem="RmY-d3-Jnl" secondAttribute="leading" id="NcC-P4-P3Z"/>
-                                    <constraint firstAttribute="trailing" secondItem="tfd-7O-9gm" secondAttribute="trailing" id="VZ4-hg-ZAG"/>
-                                    <constraint firstItem="tfd-7O-9gm" firstAttribute="top" secondItem="RmY-d3-Jnl" secondAttribute="top" id="aJa-lC-fbX"/>
-                                </constraints>
-                            </scrollView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OqV-ei-bNU">
+                                <rect key="frame" x="16" y="123" width="343" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Rq4-QE-Znj">
+                                <rect key="frame" x="14" y="256" width="347" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="RmY-d3-Jnl" secondAttribute="trailing" id="72W-km-3zP"/>
-                            <constraint firstItem="RmY-d3-Jnl" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="7Zm-H4-9QG"/>
-                            <constraint firstItem="RmY-d3-Jnl" firstAttribute="top" secondItem="uO0-qe-7ow" secondAttribute="bottom" id="EgP-gr-8hO"/>
-                            <constraint firstItem="tfd-7O-9gm" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="FXh-qT-I1F"/>
-                            <constraint firstItem="r0W-TM-cD5" firstAttribute="top" secondItem="RmY-d3-Jnl" secondAttribute="bottom" id="uKq-94-ep3"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="toZ-rA-gOy"/>
-                    <size key="freeformSize" width="375" height="800"/>
-                    <connections>
-                        <outlet property="homeView" destination="XmU-2R-XHD" id="UgC-RM-Clt"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Genel Bilgiler" largeTitleDisplayMode="always" id="toZ-rA-gOy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1101.5999999999999" y="-489.3553223388306"/>
+            <point key="canvasLocation" x="1101.5999999999999" y="-489.80509745127438"/>
         </scene>
         <!--Mail Ekle View Controller-->
         <scene sceneID="cos-O5-zcv">
@@ -85,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJp-mZ-SYw">
-                                <rect key="frame" x="16" y="296" width="343" height="239"/>
+                                <rect key="frame" x="16" y="257" width="343" height="239"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mail Adresine Davetiye Gönderin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyL-Da-Z26">
@@ -112,7 +79,7 @@
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYQ-nl-ne3" customClass="LoadingButton" customModule="Come_To_Yourself" customModuleProvider="target">
-                                <rect key="frame" x="16" y="549" width="343" height="51"/>
+                                <rect key="frame" x="16" y="510" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99995702509999995" green="0.61259067060000005" blue="0.38960069419999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
@@ -142,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="2048.8000000000002" y="-366.56671664167919"/>
         </scene>
-        <!--Ekle View Controller-->
+        <!--isim ile ekleme yapın-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="EkleViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
@@ -155,7 +122,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nkN-jd-9Y2">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -224,7 +191,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Lzu-2Z-JwR">
+                    <navigationItem key="navigationItem" title="isim ile ekleme yapın" id="Lzu-2Z-JwR">
                         <barButtonItem key="backBarButtonItem" title=" " id="i4g-df-3ST"/>
                     </navigationItem>
                     <connections>
@@ -259,7 +226,7 @@
                                 <blurEffect style="regular"/>
                             </visualEffectView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xjM-H5-zgq">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -637,7 +604,7 @@
             </objects>
             <point key="canvasLocation" x="-1412" y="823.53823088455783"/>
         </scene>
-        <!--Profil View Controller-->
+        <!--Profil Bilgileriniz-->
         <scene sceneID="zRp-Fz-xai">
             <objects>
                 <viewController id="Qkb-MC-xQe" customClass="ProfilViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
@@ -650,21 +617,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1Nt-kC-efH"/>
+                    <navigationItem key="navigationItem" title="Profil Bilgileriniz" id="1Nt-kC-efH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdj-sV-omD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1102" y="1057"/>
         </scene>
-        <!--Tab Bar View Controller-->
+        <!--Card Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="TabBarViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="PTCardTabBarController" customModule="PTCardTabBar" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="3SE-4R-ZtC"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="barBackColor">
+                                <color key="value" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="circleBackColor">
+                                <color key="value" red="0.99812215569999996" green="0.39180070160000002" blue="0.34255427119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                <real key="value" value="45"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="marginBottom">
+                                <real key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="qUz-38-6Hh" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -685,6 +668,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="phy-jU-5X3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="lightTextColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -699,7 +683,7 @@
         <scene sceneID="aHi-Wl-3Sp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a0h-HL-kJ9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profil" image="line.horizontal.3" catalog="system" id="FV8-bn-9Cv"/>
+                    <tabBarItem key="tabBarItem" title="Profil" image="person.fill" catalog="system" id="FV8-bn-9Cv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="haf-1T-G4I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -718,11 +702,12 @@
         <scene sceneID="sAs-TK-VXz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cvr-2w-3qQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bul" image="plus.app" catalog="system" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Bul" image="plus.rectangle.fill" catalog="system" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wjo-UO-DfD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.097977422179999996" green="0.049849815669999999" blue="0.25151485200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -742,9 +727,9 @@
         <image name="arrowtriangle.left.circle.fill" catalog="system" width="128" height="121"/>
         <image name="burger-king-logo-png--500" width="500" height="500"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="logo2" width="190.5" height="160.5"/>
-        <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="star" width="64" height="64"/>
     </resources>
 </document>

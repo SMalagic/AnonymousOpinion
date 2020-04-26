@@ -17,6 +17,9 @@ class MailEkleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+
 
         //el ile gölgelendirme veriliyor
         shadowView.backgroundColor = UIColor.white

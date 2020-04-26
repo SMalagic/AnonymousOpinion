@@ -14,6 +14,8 @@ target 'Come-To-Yourself' do
   pod 'SCLAlertView'
   pod 'SPAlert'
   pod 'SwiftOverlays', '~> 5.0.1'
+  pod 'PTCardTabBar'
+
 
 
 

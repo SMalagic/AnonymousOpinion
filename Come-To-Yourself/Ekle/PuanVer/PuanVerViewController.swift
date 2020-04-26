@@ -28,6 +28,10 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //BÜYÜK BAŞLIKLAR
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+
+        
         //TABLOADKİ SONDAKİ ÇİZGİLERİ KALDIRIR
         tableView.tableFooterView = UIView()
         
@@ -37,12 +41,6 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
         //geri dönüş butonu deaktif etme
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
-        //navigation bar gradient renkleri ayarlanır
-        self.navigationController?.navigationBar.setGradientBackground(colors: [
-            UIColor.init(displayP3Red: 221/255, green: 214/255, blue: 243/255, alpha: 1.0).cgColor,
-            UIColor.init(displayP3Red: 234/255, green: 192/255, blue: 205/255, alpha: 1.0).cgColor,
-            UIColor.init(displayP3Red: 250/255, green: 172/255, blue: 168/255, alpha: 1.0).cgColor
-        ])
         
         
         
@@ -128,35 +126,35 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
     @objc func btn1Tapped(_ sender: UIButton){
         
         print("İndexpath : \(indexPathRow) -- Buton : 1")
-        yuklePuan(kullanici_id_param: kullanici_id, indexPathRow_param: sender.tag, puan_param: 1)
+        yuklePuan(puan_kullanici_id_param: secilen_kullanici_id, indexPathRow_param: sender.tag, puan_param: 1)
         
     }
     @objc func btn2Tapped(_ sender: UIButton){
         
         print("İndexpath : \(indexPathRow) -- Buton : 2")
-        yuklePuan(kullanici_id_param: kullanici_id, indexPathRow_param: sender.tag, puan_param: 2)
+        yuklePuan(puan_kullanici_id_param: secilen_kullanici_id, indexPathRow_param: sender.tag, puan_param: 2)
         
     }
     @objc func btn3Tapped(_ sender: UIButton){
         
         print("İndexpath : \(indexPathRow) -- Buton : 3")
-        yuklePuan(kullanici_id_param: kullanici_id, indexPathRow_param: sender.tag, puan_param: 3)
+        yuklePuan(puan_kullanici_id_param: secilen_kullanici_id, indexPathRow_param: sender.tag, puan_param: 3)
         
     }
     @objc func btn4Tapped(_ sender: UIButton){
         
         print("İndexpath : \(indexPathRow) -- Buton : 4")
-        yuklePuan(kullanici_id_param: kullanici_id, indexPathRow_param: sender.tag, puan_param: 4)
+        yuklePuan(puan_kullanici_id_param: secilen_kullanici_id, indexPathRow_param: sender.tag, puan_param: 4)
         
     }
     @objc func btn5Tapped(_ sender: UIButton){
         
         print("İndexpath : \(indexPathRow) -- Buton : 5")
-        yuklePuan(kullanici_id_param: kullanici_id, indexPathRow_param: sender.tag, puan_param: 5)
+        yuklePuan(puan_kullanici_id_param: secilen_kullanici_id, indexPathRow_param: sender.tag, puan_param: 5)
         
     }
     
-    func yuklePuan(kullanici_id_param : String , indexPathRow_param : Int , puan_param : Int){
+    func yuklePuan(puan_kullanici_id_param : String , indexPathRow_param : Int , puan_param : Int){
         
         self.view.isUserInteractionEnabled = false
         
@@ -168,10 +166,11 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 let json: [String: Any] = [
                     "kendi_kullanici_id" : kullanici_id,
-                    "puan_kullanici_id":   kullanici_id_param,
+                    "puan_kullanici_id":   puan_kullanici_id_param,
                     "soru_id":             sorularJson[indexPathRow_param].id,
                     "puan" :               puan_param
                 ]
+                print(json)
                 
                 let jsonData = try? JSONSerialization.data(withJSONObject: json)
                 let url = URL(string: base_url + "/soru/sorular_giris.php")!
