@@ -120,11 +120,11 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
                             self.tableView.reloadData()
                             
                             //ALERT BÖLÜMÜ------------------
-                            let title = "Bulunamadı. Belki de Üye Değildir. Hemen Eklemek İstediğin Arkadaşının Mail Adresini Buraya Gir. Merak Etme Haberi Olmayacak"
+                            let title = "Kullanıcı Bulunamadı Hemen Davetiye Gönderin"
                             let message = ""
                             let popup = PopupDialog(title: title, message: message)
                             popup.transitionStyle = .fadeIn
-                            let buttonOne = CancelButton(title: "Tamam") {
+                            let buttonOne = CancelButton(title: "Mail Davetiye Gönder") {
                                 
                                 self.performSegue(withIdentifier: "toMailSegue", sender: nil)
                                 

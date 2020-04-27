@@ -13,6 +13,8 @@
 		F832C3882440224C00AF0841 /* EkleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832C3872440224C00AF0841 /* EkleViewController.swift */; };
 		F832C38B2440226700AF0841 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832C38A2440226700AF0841 /* ProfilViewController.swift */; };
 		F83968E6243FE55300AD6C2A /* VeriYapilari.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83968E5243FE55300AD6C2A /* VeriYapilari.swift */; };
+		F849496B24566B5700DC6033 /* Tanitim_Ekranlari.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F849496A24566B5700DC6033 /* Tanitim_Ekranlari.storyboard */; };
+		F849496F24566D9100DC6033 /* TanitimPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849496E24566D9100DC6033 /* TanitimPageViewController.swift */; };
 		F84CF7D424488E8100F591FC /* EkleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84CF7D324488E8100F591FC /* EkleTableViewCell.swift */; };
 		F84CF7D72448BB6A00F591FC /* PuanVerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84CF7D62448BB6A00F591FC /* PuanVerViewController.swift */; };
 		F84CF7D92448BB8100F591FC /* PuanVerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84CF7D82448BB8100F591FC /* PuanVerTableViewCell.swift */; };
@@ -39,6 +41,8 @@
 		F832C3872440224C00AF0841 /* EkleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkleViewController.swift; sourceTree = "<group>"; };
 		F832C38A2440226700AF0841 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
 		F83968E5243FE55300AD6C2A /* VeriYapilari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeriYapilari.swift; sourceTree = "<group>"; };
+		F849496A24566B5700DC6033 /* Tanitim_Ekranlari.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tanitim_Ekranlari.storyboard; sourceTree = "<group>"; };
+		F849496E24566D9100DC6033 /* TanitimPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TanitimPageViewController.swift; sourceTree = "<group>"; };
 		F84CF7D324488E8100F591FC /* EkleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EkleTableViewCell.swift; sourceTree = "<group>"; };
 		F84CF7D62448BB6A00F591FC /* PuanVerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuanVerViewController.swift; sourceTree = "<group>"; };
 		F84CF7D82448BB8100F591FC /* PuanVerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuanVerTableViewCell.swift; sourceTree = "<group>"; };
@@ -47,7 +51,7 @@
 		F858F9BC2454B63700BB4675 /* MailEkleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailEkleViewController.swift; sourceTree = "<group>"; };
 		F896140B24462DAD000C45A0 /* apple.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = apple.gif; sourceTree = "<group>"; };
 		F896140D24463154000C45A0 /* ciftetelli.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ciftetelli.mp3; sourceTree = "<group>"; };
-		F8ADCD04243E387300E22D31 /* Come-To-Yourself.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Come-To-Yourself.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8ADCD04243E387300E22D31 /* Anonim Fikir.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anonim Fikir.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ADCD07243E387300E22D31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8ADCD09243E387300E22D31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F8ADCD10243E387300E22D31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +128,14 @@
 			path = Profil;
 			sourceTree = "<group>";
 		};
+		F849496D24566D7100DC6033 /* Tanitim_Ekranlari */ = {
+			isa = PBXGroup;
+			children = (
+				F849496E24566D9100DC6033 /* TanitimPageViewController.swift */,
+			);
+			path = Tanitim_Ekranlari;
+			sourceTree = "<group>";
+		};
 		F84CF7D52448BB2600F591FC /* PuanVer */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +166,7 @@
 		F8ADCD05243E387300E22D31 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F8ADCD04243E387300E22D31 /* Come-To-Yourself.app */,
+				F8ADCD04243E387300E22D31 /* Anonim Fikir.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,10 +180,12 @@
 				F832C3832440220B00AF0841 /* Anasayfa */,
 				F832C3862440223800AF0841 /* Ekle */,
 				F832C3892440225600AF0841 /* Profil */,
-				F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */,
+				F849496D24566D7100DC6033 /* Tanitim_Ekranlari */,
 				F8ADCD1D243E40C900E22D31 /* GirisYapViewController.swift */,
+				F84F78D2243E53A400E869E0 /* KayitOlViewController.swift */,
 				F81FCA2B2446253500302AA8 /* TanitimViewController.swift */,
 				F8ADCD0F243E387300E22D31 /* Main.storyboard */,
+				F849496A24566B5700DC6033 /* Tanitim_Ekranlari.storyboard */,
 				F8ADCD12243E387500E22D31 /* Assets.xcassets */,
 				F8ADCD14243E387500E22D31 /* LaunchScreen.storyboard */,
 				F896140D24463154000C45A0 /* ciftetelli.mp3 */,
@@ -200,7 +214,7 @@
 			);
 			name = "Come-To-Yourself";
 			productName = "Come-To-Yourself";
-			productReference = F8ADCD04243E387300E22D31 /* Come-To-Yourself.app */;
+			productReference = F8ADCD04243E387300E22D31 /* Anonim Fikir.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -244,6 +258,7 @@
 				F8ADCD16243E387500E22D31 /* LaunchScreen.storyboard in Resources */,
 				F8ADCD13243E387500E22D31 /* Assets.xcassets in Resources */,
 				F896140E24463154000C45A0 /* ciftetelli.mp3 in Resources */,
+				F849496B24566B5700DC6033 /* Tanitim_Ekranlari.storyboard in Resources */,
 				F896140C24462DAD000C45A0 /* apple.gif in Resources */,
 				F8ADCD11243E387300E22D31 /* Main.storyboard in Resources */,
 			);
@@ -310,6 +325,7 @@
 				F8ADCD08243E387300E22D31 /* AppDelegate.swift in Sources */,
 				F832C38B2440226700AF0841 /* ProfilViewController.swift in Sources */,
 				F8ADCD1E243E40C900E22D31 /* GirisYapViewController.swift in Sources */,
+				F849496F24566D9100DC6033 /* TanitimPageViewController.swift in Sources */,
 				F858F9BD2454B63700BB4675 /* MailEkleViewController.swift in Sources */,
 				F832C3882440224C00AF0841 /* EkleViewController.swift in Sources */,
 				F8ADCD0A243E387300E22D31 /* SceneDelegate.swift in Sources */,
@@ -465,7 +481,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.serkanmehmetmalagic.Come-To-Yourself";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Anonim Fikir";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -484,7 +500,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.serkanmehmetmalagic.Come-To-Yourself";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Anonim Fikir";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

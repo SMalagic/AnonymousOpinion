@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ORz-Gd-kRn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0MC-Yt-750">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Genel Bilgiler-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="AnasayfaViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="AnasayfaViewController" customModule="Anonim_Fikir" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uO0-qe-7ow"/>
                         <viewControllerLayoutGuide type="bottom" id="r0W-TM-cD5"/>
@@ -37,12 +38,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1101.5999999999999" y="-489.80509745127438"/>
+            <point key="canvasLocation" x="1102" y="-312"/>
         </scene>
-        <!--Mail Ekle View Controller-->
+        <!--Davetiye Gönderin-->
         <scene sceneID="cos-O5-zcv">
             <objects>
-                <viewController id="iAe-8c-fG6" customClass="MailEkleViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iAe-8c-fG6" customClass="MailEkleViewController" customModule="Anonim_Fikir" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jym-Jm-kO7"/>
                         <viewControllerLayoutGuide type="bottom" id="Whf-Ob-MrE"/>
@@ -52,34 +53,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJp-mZ-SYw">
-                                <rect key="frame" x="16" y="257" width="343" height="239"/>
+                                <rect key="frame" x="16" y="312" width="343" height="189"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mail Adresine Davetiye Gönderin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyL-Da-Z26">
-                                        <rect key="frame" x="23" y="100" width="300" height="37"/>
+                                        <rect key="frame" x="21" y="79" width="300" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="örn serkanmalagic@icloud.com" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Uvk-Wr-c8y">
-                                        <rect key="frame" x="23" y="152" width="300" height="36"/>
+                                        <rect key="frame" x="21" y="116" width="300" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yeni Bir Kullanıcı Ekleyin +" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYP-BC-rBY">
-                                        <rect key="frame" x="23" y="22" width="300" height="34"/>
+                                        <rect key="frame" x="21" y="37" width="300" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYQ-nl-ne3" customClass="LoadingButton" customModule="Come_To_Yourself" customModuleProvider="target">
-                                <rect key="frame" x="16" y="510" width="343" height="51"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYQ-nl-ne3" customClass="LoadingButton" customModule="Anonim_Fikir" customModuleProvider="target">
+                                <rect key="frame" x="16" y="515" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99995702509999995" green="0.61259067060000005" blue="0.38960069419999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
@@ -98,7 +99,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hsy-Aa-Zt4"/>
+                    <navigationItem key="navigationItem" title="Davetiye Gönderin" id="hsy-Aa-Zt4"/>
                     <connections>
                         <outlet property="gonderButton" destination="HYQ-nl-ne3" id="eTb-bE-FYJ"/>
                         <outlet property="mailText" destination="Uvk-Wr-c8y" id="jyx-OW-V6T"/>
@@ -107,12 +108,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7p1-rF-cuc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2048.8000000000002" y="-366.56671664167919"/>
+            <point key="canvasLocation" x="1804" y="-313"/>
         </scene>
-        <!--isim ile ekleme yapın-->
+        <!--Adını Aratın-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="EkleViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="EkleViewController" customModule="Anonim_Fikir" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I61-Pg-KKN"/>
                         <viewControllerLayoutGuide type="bottom" id="EtC-ap-c1j"/>
@@ -127,7 +128,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="KullaniciCell" rowHeight="81" id="AM8-I7-rJm" customClass="EkleTableViewCell" customModule="Come_To_Yourself" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="KullaniciCell" rowHeight="81" id="AM8-I7-rJm" customClass="EkleTableViewCell" customModule="Anonim_Fikir" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AM8-I7-rJm" id="1YO-aM-QDr">
@@ -191,7 +192,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="isim ile ekleme yapın" id="Lzu-2Z-JwR">
+                    <navigationItem key="navigationItem" title="Adını Aratın" id="Lzu-2Z-JwR">
                         <barButtonItem key="backBarButtonItem" title=" " id="i4g-df-3ST"/>
                     </navigationItem>
                     <connections>
@@ -207,7 +208,7 @@
         <!--Kullanıcı İçin Cevapla-->
         <scene sceneID="N1d-aL-bOG">
             <objects>
-                <viewController id="b2w-o1-WvU" customClass="PuanVerViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="b2w-o1-WvU" customClass="PuanVerViewController" customModule="Anonim_Fikir" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qYp-U7-j7s"/>
                         <viewControllerLayoutGuide type="bottom" id="VWb-ip-GGE"/>
@@ -231,7 +232,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SoruCell" rowHeight="145" id="Dr6-sF-dxV" customClass="PuanVerTableViewCell" customModule="Come_To_Yourself" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SoruCell" rowHeight="145" id="Dr6-sF-dxV" customClass="PuanVerTableViewCell" customModule="Anonim_Fikir" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="145"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dr6-sF-dxV" id="CJo-Vg-zgE">
@@ -247,7 +248,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kişi Güvenilir Birisidir Güvenim Tam ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXi-pm-cC8">
-                                                                    <rect key="frame" x="11" y="11" width="307" height="58"/>
+                                                                    <rect key="frame" x="11" y="11" width="306" height="58"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
@@ -255,7 +256,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDf-H7-kTB">
-                                                                    <rect key="frame" x="140" y="77" width="55" height="35"/>
+                                                                    <rect key="frame" x="140" y="77" width="58" height="35"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" red="0.64277379480126784" green="0.73472770027918355" blue="0.993040631078694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
@@ -264,7 +265,7 @@
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EY4-Q5-0dZ">
-                                                                    <rect key="frame" x="203" y="77" width="53" height="35"/>
+                                                                    <rect key="frame" x="204" y="77" width="50" height="35"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" red="0.64277379480126784" green="0.73472770027918355" blue="0.993040631078694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
@@ -273,7 +274,7 @@
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLQ-fB-eQs">
-                                                                    <rect key="frame" x="264" y="77" width="53" height="35"/>
+                                                                    <rect key="frame" x="263" y="77" width="52" height="35"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" red="0.64277379480126784" green="0.73472770027918355" blue="0.993040631078694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
@@ -282,7 +283,7 @@
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wue-QG-nmK">
-                                                                    <rect key="frame" x="77" y="77" width="55" height="35"/>
+                                                                    <rect key="frame" x="77" y="77" width="56" height="35"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" red="0.64277379480126784" green="0.73472770027918355" blue="0.993040631078694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
@@ -303,7 +304,7 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -329,12 +330,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kao-Gl-Wgc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2048.8000000000002" y="360.2698650674663"/>
+            <point key="canvasLocation" x="1804" y="361"/>
         </scene>
         <!--Tanitim View Controller-->
         <scene sceneID="tuQ-XB-EFz">
             <objects>
-                <viewController id="JeI-y7-VrU" customClass="TanitimViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JeI-y7-VrU" customClass="TanitimViewController" customModule="Anonim_Fikir" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UQG-Ta-NZS"/>
                         <viewControllerLayoutGuide type="bottom" id="mD6-VR-PCf"/>
@@ -354,7 +355,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qe-mD-E6X" customClass="LoadingButton" customModule="Come_To_Yourself" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qe-mD-E6X" customClass="LoadingButton" customModule="Anonim_Fikir" customModuleProvider="target">
                                 <rect key="frame" x="36" y="538" width="303" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -385,12 +386,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvX-y0-EWf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2679.1999999999998" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="-2596" y="0.0"/>
         </scene>
         <!--Giris Yap View Controller-->
         <scene sceneID="C2h-ZV-728">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ORz-Gd-kRn" customClass="GirisYapViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ORz-Gd-kRn" customClass="GirisYapViewController" customModule="Anonim_Fikir" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7St-Du-T6d"/>
                         <viewControllerLayoutGuide type="bottom" id="QMT-1O-e9p"/>
@@ -434,7 +435,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ0-7X-vp1" customClass="LoadingButton" customModule="Come_To_Yourself" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ0-7X-vp1" customClass="LoadingButton" customModule="Anonim_Fikir" customModuleProvider="target">
                                 <rect key="frame" x="47" y="452" width="281" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -491,7 +492,7 @@
         <!--Kayit Ol View Controller-->
         <scene sceneID="YER-ID-Do7">
             <objects>
-                <viewController id="li8-ck-dge" customClass="KayitOlViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="li8-ck-dge" customClass="KayitOlViewController" customModule="Anonim_Fikir" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lru-iO-PUj"/>
                         <viewControllerLayoutGuide type="bottom" id="cpv-fz-djp"/>
@@ -500,7 +501,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhJ-SH-lhF" customClass="LoadingButton" customModule="Come_To_Yourself" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhJ-SH-lhF" customClass="LoadingButton" customModule="Anonim_Fikir" customModuleProvider="target">
                                 <rect key="frame" x="31" y="597" width="312" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="0.7205425941780822" colorSpace="custom" customColorSpace="sRGB"/>
@@ -602,12 +603,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pZ-Br-GaM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1412" y="823.53823088455783"/>
+            <point key="canvasLocation" x="-530" y="668"/>
         </scene>
         <!--Profil Bilgileriniz-->
         <scene sceneID="zRp-Fz-xai">
             <objects>
-                <viewController id="Qkb-MC-xQe" customClass="ProfilViewController" customModule="Come_To_Yourself" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qkb-MC-xQe" customClass="ProfilViewController" customModule="Anonim_Fikir" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sh1-5R-NRJ"/>
                         <viewControllerLayoutGuide type="bottom" id="LUy-At-sMJ"/>
@@ -649,6 +650,14 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                            <color key="value" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="tabBarBackgroundColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="qUz-38-6Hh" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="cvr-2w-3qQ" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
@@ -719,9 +728,91 @@
             </objects>
             <point key="canvasLocation" x="313" y="362"/>
         </scene>
+        <!--Tanitim Page View Controller-->
+        <scene sceneID="0fC-jC-m9I">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0MC-Yt-750" customClass="TanitimPageViewController" customModule="Anonim_Fikir" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70S-r0-9sO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2105" y="708"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ozF-bs-u0X">
+            <objects>
+                <viewController storyboardIdentifier="sb2" id="sep-p8-WIS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p31-Uc-TpO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="9bP-qI-S1X"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AuV-Lf-LVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3548" y="1383"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Jne-hf-0yF">
+            <objects>
+                <viewController storyboardIdentifier="sb1" id="8Sd-K1-TA8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NNC-Hf-7Yl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.99812215569999996" green="0.39180070160000002" blue="0.34255427119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="y56-Rk-FX9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RLO-Lu-gUN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4279" y="1383"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mmj-rG-91w">
+            <objects>
+                <viewController storyboardIdentifier="sb3" id="RHe-Wd-pBB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ktb-Q6-y0u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.23382729290000001" green="0.4772033691" blue="0.34132313730000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="lBw-Z9-6l5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Fz-Q2-3Vp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2828" y="1383"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Moj-Um-hEX">
+            <objects>
+                <viewController storyboardIdentifier="sb4" id="Z13-07-FoX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ad4-Kg-fB9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqy-1D-ipm">
+                                <rect key="frame" x="51" y="554" width="273" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99812215569999996" green="0.39180070160000002" blue="0.34255427119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.8699631095" green="0.89032965900000005" blue="0.89031714200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ORz-Gd-kRn" kind="show" id="Agf-IN-9c5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rMw-0Y-l2l"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8fh-4W-mt0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2106" y="1383"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="INh-5k-Rvs"/>
+        <segue reference="Agf-IN-9c5"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowtriangle.left.circle.fill" catalog="system" width="128" height="121"/>
