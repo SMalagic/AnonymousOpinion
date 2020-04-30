@@ -10,7 +10,7 @@ import Foundation
 
 //Api Bilgileri---------------------
 var base_url = "https://ill-natured-violati.000webhostapp.com/api"
-//var base_url = "http://192.168.1.39:8888/cometoyourselfapi/api"
+//var base_url = "http://192.168.1.36:8888/cometoyourselfapi/api"
 
 //Kullanıcı Bilgileri---------------
 var kullanici_id =     String()

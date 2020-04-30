@@ -44,11 +44,16 @@ class MailEkleViewController: UIViewController {
     
     @IBAction func gonderButtonTapped(_ sender: Any) {
         
-        if mailText.text != ""{
+        if mailText.text == ""{
             alertFunction(message: "Mail Boş Bırakılamaz")
         }
         else{
             //bu bölümde bahsi geçen mail adresine bir davetiye gönderilecek
+            //web servise mail gönderme işlemleri yapılacak
+            
+            
+            mailEkle()
+            
             
         }
         
@@ -72,6 +77,77 @@ class MailEkleViewController: UIViewController {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
+    }
+    
+    func mailEkle(){
+        
+        view.endEditing(true)
+
+        if Reachability.isConnectedToNetwork(){
+            if self.mailText.text == "" {
+                self.alertFunction(message: "Lütfen Bilgileri Boş Bırakmayınız")
+            }
+            else{
+                
+                gonderButton.showLoading()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    
+                    // prepare json data
+                    let json: [String: Any] = [
+                        "mail":  self.mailText.text!
+                    ]
+                    
+                    let jsonData = try? JSONSerialization.data(withJSONObject: json)
+                    
+                    // create post request
+                    let url = URL(string: base_url + "/mail/mail_gonder.php")!
+                    var request = URLRequest(url: url)
+                    request.httpMethod = "POST"
+                    
+                    // insert json data to the request
+                    request.httpBody = jsonData
+                    
+                    DispatchQueue.main.async {
+                        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                            guard let data = data, error == nil else {
+                                print(error?.localizedDescription ?? "No data")
+                                return
+                            }
+                            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                            if let responseJSON = responseJSON as? [String: Any] {
+                                print(responseJSON)
+                                
+//                                let cevapValue =  responseJSON["cevap"] as? String
+//                                if cevapValue == "1"{
+//                                    DispatchQueue.main.async {
+//
+//                                        kullanici_adi =         responseJSON["adsoyad"] as! String
+//                                        kullanici_id =          responseJSON["id"] as! String
+//                                        kullanici_mail =        responseJSON["mail"] as! String
+//                                        kullanici_sifre =       responseJSON["sifre"] as! String
+//                                        kullanici_puan =        responseJSON["puan"] as! Int
+//                                        kullanici_created_at =  responseJSON["created_at"] as! String
+//
+//                                        self.gonderButton.hideLoading()
+//
+//                                        self.performSegue(withIdentifier: "toTabBar", sender: nil)
+//                                    }
+//                                }
+//                                else if cevapValue == "0"{
+//                                    DispatchQueue.main.async {
+//                                        self.gonderButton.hideLoading()
+//                                        self.alertFunction(message: "Kullanıcı Adı veya Şifre Yanlış")
+//                                    }
+//                                }
+                            }
+                        }
+                        task.resume()
+                    }
+                    
+                }
+            }
+        }
+        
     }
     
     
