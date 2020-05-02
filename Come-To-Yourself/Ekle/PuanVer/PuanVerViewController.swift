@@ -187,6 +187,7 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
                         if let responseJSON = responseJSON as? [String: Any] {
                             print(responseJSON)
                             let cevapValue =  responseJSON["cevap"] as? String
+                            print(cevapValue)
                             if cevapValue == "1"{
                                 DispatchQueue.main.async {
                                     
@@ -217,9 +218,6 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
                     task.resume()
                 }
             }
-            
-            
-            
         }
     }
     
@@ -250,10 +248,8 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
                         sorularJson = try decoder.decode([Soru].self, from: data)
                         
                         print(sorularJson)
-                        
                         self.tabloReload()
 
-                        
                     }
                     catch let jsonError{
                         print("Fail", jsonError)

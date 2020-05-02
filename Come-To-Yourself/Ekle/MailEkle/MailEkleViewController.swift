@@ -24,9 +24,9 @@ class MailEkleViewController: UIViewController {
         //el ile gölgelendirme veriliyor
         shadowView.backgroundColor = UIColor.white
         shadowView.layer.shadowColor = UIColor.gray.cgColor
-        shadowView.layer.shadowOpacity = 0.6
+        shadowView.layer.shadowOpacity = 0.3
         shadowView.layer.shadowOffset = CGSize.zero
-        shadowView.layer.shadowRadius = 5
+        shadowView.layer.shadowRadius = 3
         shadowView.cornerRadius()
         
         
@@ -39,10 +39,19 @@ class MailEkleViewController: UIViewController {
         view.addGestureRecognizer(tap)
         
         
-        
     }
     
     @IBAction func gonderButtonTapped(_ sender: Any) {
+        
+        //BUTON TIKLAMA EFEKTİ
+        UIView.animate(withDuration: 0.1, animations: {
+            self.gonderButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            }, completion: { (finish) in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.gonderButton.transform = CGAffineTransform.identity
+                })
+        })
+        
         
         if mailText.text == ""{
             alertFunction(message: "Mail Boş Bırakılamaz")
@@ -50,10 +59,7 @@ class MailEkleViewController: UIViewController {
         else{
             //bu bölümde bahsi geçen mail adresine bir davetiye gönderilecek
             //web servise mail gönderme işlemleri yapılacak
-            
-            
             mailEkle()
-            
             
         }
         
@@ -117,28 +123,23 @@ class MailEkleViewController: UIViewController {
                             if let responseJSON = responseJSON as? [String: Any] {
                                 print(responseJSON)
                                 
-//                                let cevapValue =  responseJSON["cevap"] as? String
-//                                if cevapValue == "1"{
-//                                    DispatchQueue.main.async {
-//
-//                                        kullanici_adi =         responseJSON["adsoyad"] as! String
-//                                        kullanici_id =          responseJSON["id"] as! String
-//                                        kullanici_mail =        responseJSON["mail"] as! String
-//                                        kullanici_sifre =       responseJSON["sifre"] as! String
-//                                        kullanici_puan =        responseJSON["puan"] as! Int
-//                                        kullanici_created_at =  responseJSON["created_at"] as! String
-//
-//                                        self.gonderButton.hideLoading()
-//
-//                                        self.performSegue(withIdentifier: "toTabBar", sender: nil)
-//                                    }
-//                                }
-//                                else if cevapValue == "0"{
-//                                    DispatchQueue.main.async {
-//                                        self.gonderButton.hideLoading()
-//                                        self.alertFunction(message: "Kullanıcı Adı veya Şifre Yanlış")
-//                                    }
-//                                }
+                                let cevapValue =  responseJSON["cevap"] as? String
+                                if cevapValue == "1"{
+                                    DispatchQueue.main.async {
+
+                                        _ = self.navigationController?.popToRootViewController(animated: true)
+                                        self.gonderButton.hideLoading()
+                                        self.alertLittle(title: "Mail Gönderildi", detail: "Umarız Aramıza Katılırlar")
+                                        
+                                        
+                                    }
+                                }
+                                else if cevapValue == "0"{
+                                    DispatchQueue.main.async {
+                                        self.gonderButton.hideLoading()
+                                        self.alertFunction(message: "Kullanıcı Adı veya Şifre Yanlış")
+                                    }
+                                }
                             }
                         }
                         task.resume()

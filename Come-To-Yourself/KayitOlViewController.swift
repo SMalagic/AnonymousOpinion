@@ -51,6 +51,16 @@ class KayitOlViewController: UIViewController {
     
     @IBAction func kayitOlButtonTapped(_ sender: Any) {
         
+        //BUTON TIKLAMA EFEKTİ
+        UIView.animate(withDuration: 0.1, animations: {
+            self.kayitOlButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            }, completion: { (finish) in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.kayitOlButton.transform = CGAffineTransform.identity
+                })
+        })
+        
+        
         //İNTERNETE BAĞLI MI DEĞİL Mİ KONTROL EDİYORUZ
         if Reachability.isConnectedToNetwork(){
             if self.mailText.text == "" || self.sifreText.text == "" || self.sifreTekrarText.text == "" || adsoyadText.text == "" {
@@ -77,8 +87,6 @@ class KayitOlViewController: UIViewController {
                     self.kullaniciKontrol()
                 }
                 
-                
-                
             }
         }
         else{
@@ -96,7 +104,7 @@ class KayitOlViewController: UIViewController {
                                    "mail": mailText.text!,
                                    "sifre": sifreText.text!,
                                    "puan": 0
-        ]
+                                  ]
         
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
@@ -131,7 +139,6 @@ class KayitOlViewController: UIViewController {
                             popup.addButtons([buttonOne])
                             self.present(popup, animated: true, completion: nil)
                         }
-                        
                     }
                     else{
                         self.alertFunction(message: "Kullanıcı mevcut")

@@ -10,6 +10,8 @@ import UIKit
 import PopupDialog
 import StatusAlert
 
+
+
 //BUTONLARIN ACTİVİTY İNDİCATOR ÇIKARTABİLMESİ İÇİN GEREKEN KLAS
 class LoadingButton: UIButton {
     
@@ -140,7 +142,6 @@ extension UIView {
 
     
 }
-
 
 //TABLODA BOŞ İKEN BELİRLEDĞİİMİZ MESAJ YAZACAK
 extension UITableView {

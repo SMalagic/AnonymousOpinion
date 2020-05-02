@@ -7,26 +7,150 @@
 //
 
 import UIKit
+import  PopupDialog
+import StatusAlert
 
 class ProfilViewController: UIViewController {
 
+    @IBOutlet weak var puanLabel: UILabel!
+    @IBOutlet weak var adSoyadLabel: UILabel!
+    @IBOutlet weak var mailLabel: UILabel!
+    
+    @IBOutlet weak var shadowView1: UIView!
+    @IBOutlet weak var shadowView2: UIView!
+    @IBOutlet weak var shadowView3: UIView!
+    
+    @IBOutlet weak var sorunMuVarButton: UIButton!
+    @IBOutlet weak var ilkelerimizButton: UIButton!
+    @IBOutlet weak var hakkimizdaButton: UIButton!
+    @IBOutlet weak var cikisYapButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         
+        //MİNİK VERİTABANINDAN KULLANICI İD ÇEKİP SERVİSE GÖNDERİYORUZ
+        let vt_kullanici_id : String  = UserDefaults.standard.string(forKey: "kullanici_adi")!
+        
+        shadowViews()
+        profilBilgileriGetir()
+        
     }
     
+    @IBAction func sorunMuVarButtonTapped(_ sender: Any) {
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //BUTON TIKLAMA EFEKTİ
+        UIView.animate(withDuration: 0.1, animations: {
+            self.sorunMuVarButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            }, completion: { (finish) in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.sorunMuVarButton.transform = CGAffineTransform.identity
+                })
+        })
     }
-    */
+    
+    @IBAction func ilkelerimizButtonTapped(_ sender: Any) {
+
+        //BUTON TIKLAMA EFEKTİ
+        UIView.animate(withDuration: 0.1, animations: {
+            self.ilkelerimizButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            }, completion: { (finish) in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.ilkelerimizButton.transform = CGAffineTransform.identity
+                })
+        })
+    }
+    @IBAction func hakkimizdaButtonTapped(_ sender: Any) {
+
+        //BUTON TIKLAMA EFEKTİ
+        UIView.animate(withDuration: 0.1, animations: {
+            self.hakkimizdaButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            }, completion: { (finish) in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.hakkimizdaButton.transform = CGAffineTransform.identity
+                })
+        })
+    }
+    
+    @IBAction func cikisYapButtonTapped(_ sender: Any) {
+        
+        //BUTON TIKLAMA EFEKTİ
+        UIView.animate(withDuration: 0.1, animations: {
+            self.cikisYapButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            }, completion: { (finish) in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.cikisYapButton.transform = CGAffineTransform.identity
+                })
+        })
+
+        let title = "Çıkış Yapılacak"
+        let message = ""
+        let popup = PopupDialog(title: title, message: message)
+        popup.transitionStyle = .fadeIn
+        let buttonOne = CancelButton(title: "Çıkış Yap") {
+            
+            //ÖNCE MİNİK VERİTABANINDAKİ VERİLERİ SİLİYORUZ
+            UserDefaults.standard.removeObject(forKey: "kullanici_id")
+            UserDefaults.standard.removeObject(forKey: "kullanici_adi")
+            UserDefaults.standard.removeObject(forKey: "kullanici_sifre")
+            UserDefaults.standard.removeObject(forKey: "kullanici_mail")
+            UserDefaults.standard.synchronize()
+            
+            //ARDINDAN SEGUE İLE DİĞER EKRANA GEÇİYORUZ.
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "girisYapS") as! GirisYapViewController
+            self.present(nextViewController, animated:true, completion:nil)
+            
+            let delegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            delegate.RememberUser()
+            
+            
+            
+        }
+        popup.addButtons([buttonOne])
+        self.present(popup, animated: true, completion: nil)
+        
+    }
+    
+    func shadowViews(){
+        
+        //el ile gölgelendirme veriliyor
+        shadowView1.backgroundColor = UIColor.white
+        shadowView1.layer.shadowColor = UIColor.gray.cgColor
+        shadowView1.layer.shadowOpacity = 0.5
+        shadowView1.layer.shadowOffset = CGSize.zero
+        shadowView1.layer.shadowRadius = 3
+        shadowView1.cornerRadius()
+        
+        //el ile gölgelendirme veriliyor
+        shadowView2.backgroundColor = UIColor.white
+        shadowView2.layer.shadowColor = UIColor.gray.cgColor
+        shadowView2.layer.shadowOpacity = 0.5
+        shadowView2.layer.shadowOffset = CGSize.zero
+        shadowView2.layer.shadowRadius = 3
+        shadowView2.cornerRadius()
+        
+        //el ile gölgelendirme veriliyor
+        shadowView3.backgroundColor = UIColor.white
+        shadowView3.layer.shadowColor = UIColor.gray.cgColor
+        shadowView3.layer.shadowOpacity = 0.5
+        shadowView3.layer.shadowOffset = CGSize.zero
+        shadowView3.layer.shadowRadius = 3
+        shadowView3.cornerRadius()
+        
+    }
+    
+    func profilBilgileriGetir(){
+        
+        //MİNİK VERİTABANINDAN KULLANICI İD ÇEKİP SERVİSE GÖNDERİYORUZ
+        mailLabel.text =        UserDefaults.standard.string(forKey: "kullanici_mail")!
+        adSoyadLabel.text =     UserDefaults.standard.string(forKey: "kullanici_adi")!
+        puanLabel.text =        UserDefaults.standard.string(forKey: "kullanici_puan")!
+        
+    }
+    
 
 }

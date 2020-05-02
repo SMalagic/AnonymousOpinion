@@ -23,6 +23,12 @@ class PuanVerTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+//        btn1.startAnimatingPressActions()
+//        btn2.startAnimatingPressActions()
+//        btn3.startAnimatingPressActions()
+//        btn4.startAnimatingPressActions()
+//        btn5.startAnimatingPressActions()
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

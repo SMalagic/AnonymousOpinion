@@ -128,7 +128,6 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
                                 
                                 self.performSegue(withIdentifier: "toMailSegue", sender: nil)
                                 
-                                
                             }
                             popup.addButtons([buttonOne])
                             self.present(popup, animated: true, completion: nil)

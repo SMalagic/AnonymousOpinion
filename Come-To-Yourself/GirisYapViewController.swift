@@ -59,6 +59,16 @@ class GirisYapViewController: UIViewController {
             else{
                 
                 girisYapButton.showLoading()
+                
+                //BUTON TIKLAMA EFEKTİ----------------------------------
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.girisYapButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+                    }, completion: { (finish) in
+                        UIView.animate(withDuration: 0.1, animations: {
+                            self.girisYapButton.transform = CGAffineTransform.identity
+                        })
+                })
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     
                     // prepare json data
@@ -98,8 +108,22 @@ class GirisYapViewController: UIViewController {
                                         kullanici_puan =        responseJSON["puan"] as! Int
                                         kullanici_created_at =  responseJSON["created_at"] as! String
                                         
-                                        self.girisYapButton.hideLoading()
+                                        //KULLANICI HATIRLAMA BÖLÜMÜ
+                                        UserDefaults.standard.set(kullanici_id, forKey: "kullanici_id")
+                                        UserDefaults.standard.set(kullanici_adi, forKey: "kullanici_adi")
+                                        UserDefaults.standard.set(kullanici_mail, forKey: "kullanici_mail")
+                                        UserDefaults.standard.set(kullanici_sifre, forKey: "kullanici_sifre")
+                                        UserDefaults.standard.set(kullanici_puan, forKey: "kullanici_puan")
+                                        UserDefaults.standard.set(kullanici_created_at, forKey: "kullanici_created_at")
+                                        UserDefaults.standard.synchronize()
                                         
+                                        
+                                        //KULLANICIYI HATIRLAMAK İÇİN GEREKEN FONKSİYONU KULLANDIK
+                                        let delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                                        delegate.RememberUser()
+                                        
+                                        
+                                        self.girisYapButton.hideLoading()
                                         self.performSegue(withIdentifier: "toTabBar", sender: nil)
                                     }
                                 }
