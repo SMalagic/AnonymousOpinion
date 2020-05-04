@@ -133,7 +133,7 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
                             self.present(popup, animated: true, completion: nil)
                             
                         }
-                        self.tableView.reloadData()
+                        self.tabloReload()
                     }
                     catch let jsonError{
                         print("Fail", jsonError)
@@ -163,9 +163,10 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "KullaniciCell") as! EkleTableViewCell
         
         cell.kullaniciAdıLabel.text = kullanicilarJson[indexPath.row].adsoyad.uppercased()
+        cell.puanLabel.text = kullanicilarJson[indexPath.row].puan
+        
         
         //el ile gölgelendirme veriliyor
-        cell.shadowView.backgroundColor = UIColor.white
         cell.shadowView.layer.shadowColor = UIColor.gray.cgColor
         cell.shadowView.layer.shadowOpacity = 0.6
         cell.shadowView.layer.shadowOffset = CGSize.zero
@@ -194,6 +195,22 @@ class EkleViewController: UIViewController , UISearchBarDelegate, UITableViewDel
         searchBar.endEditing(true)
     }
     
+    
+    
+    
+    func tabloReload(){
+            
+    //        UIView.transition(with: self.tableView,
+    //                          duration: 0.7,
+    //                          options: .transitionCrossDissolve,
+    //        animations: { self.tableView.reloadData() })
+    //
+            
+            let range = NSMakeRange(0, self.tableView.numberOfSections)
+            let sections = NSIndexSet(indexesIn: range)
+            self.tableView.reloadSections(sections as IndexSet, with: .automatic)
+            
+        }
     
     
 }

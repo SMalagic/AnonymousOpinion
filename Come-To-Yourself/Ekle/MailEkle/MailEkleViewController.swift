@@ -12,6 +12,7 @@ class MailEkleViewController: UIViewController {
 
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var mailText: UITextField!
+    @IBOutlet weak var shadowView2: UIView!
     
     @IBOutlet weak var gonderButton: LoadingButton!
     
@@ -28,6 +29,16 @@ class MailEkleViewController: UIViewController {
         shadowView.layer.shadowOffset = CGSize.zero
         shadowView.layer.shadowRadius = 3
         shadowView.cornerRadius()
+        
+        //el ile gölgelendirme veriliyor
+        shadowView2.backgroundColor = UIColor.white
+        shadowView2.layer.shadowColor = UIColor.gray.cgColor
+        shadowView2.layer.shadowOpacity = 0.3
+        shadowView2.layer.shadowOffset = CGSize.zero
+        shadowView2.layer.shadowRadius = 3
+        shadowView2.cornerRadius()
+        
+        
         
         
         

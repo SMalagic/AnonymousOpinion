@@ -188,18 +188,17 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
                             print(responseJSON)
                             let cevapValue =  responseJSON["cevap"] as? String
                             print(cevapValue)
-                            if cevapValue == "1"{
+                            if cevapValue == "1" {
                                 DispatchQueue.main.async {
                                     
                                     self.removeAllOverlays()
                                     sorularJson.remove(at: indexPathRow_param)
                                     self.tabloReload()
-                                    
                                     self.view.isUserInteractionEnabled = true
 
                                 }
                             }
-                            else if cevapValue == "0"{
+                            else if cevapValue == "0" {
                                 
                                 DispatchQueue.main.async {
                              

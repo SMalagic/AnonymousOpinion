@@ -51,7 +51,16 @@ class GirisYapViewController: UIViewController {
     @IBAction func girisYapButtonTapped(_ sender: Any) {
         
         view.endEditing(true)
-
+        //BUTON TIKLAMA EFEKTİ----------------------------------
+        UIView.animate(withDuration: 0.1, animations: {
+            self.girisYapButton.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
+        }, completion: { (finish) in
+            UIView.animate(withDuration: 0.1, animations: {
+                self.girisYapButton.transform = CGAffineTransform.identity
+            })
+        })
+        
+        
         if Reachability.isConnectedToNetwork(){
             if self.kullaniciMailText.text == "" || self.kullaniciSifreText.text == "" {
                 self.alertFunction(message: "Lütfen Bilgileri Boş Bırakmayınız")
@@ -59,15 +68,6 @@ class GirisYapViewController: UIViewController {
             else{
                 
                 girisYapButton.showLoading()
-                
-                //BUTON TIKLAMA EFEKTİ----------------------------------
-                UIView.animate(withDuration: 0.1, animations: {
-                    self.girisYapButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
-                    }, completion: { (finish) in
-                        UIView.animate(withDuration: 0.1, animations: {
-                            self.girisYapButton.transform = CGAffineTransform.identity
-                        })
-                })
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     

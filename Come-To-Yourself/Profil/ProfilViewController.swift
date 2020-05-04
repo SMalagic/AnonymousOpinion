@@ -44,7 +44,7 @@ class ProfilViewController: UIViewController {
 
         //BUTON TIKLAMA EFEKTİ
         UIView.animate(withDuration: 0.1, animations: {
-            self.sorunMuVarButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            self.sorunMuVarButton.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
             }, completion: { (finish) in
                 UIView.animate(withDuration: 0.1, animations: {
                     self.sorunMuVarButton.transform = CGAffineTransform.identity
@@ -56,7 +56,7 @@ class ProfilViewController: UIViewController {
 
         //BUTON TIKLAMA EFEKTİ
         UIView.animate(withDuration: 0.1, animations: {
-            self.ilkelerimizButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            self.ilkelerimizButton.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
             }, completion: { (finish) in
                 UIView.animate(withDuration: 0.1, animations: {
                     self.ilkelerimizButton.transform = CGAffineTransform.identity
@@ -65,9 +65,12 @@ class ProfilViewController: UIViewController {
     }
     @IBAction func hakkimizdaButtonTapped(_ sender: Any) {
 
+        hakkimizdaButton.adjustsImageWhenHighlighted = false
+
+        hakkimizdaButton.adjustsImageWhenDisabled = false
         //BUTON TIKLAMA EFEKTİ
         UIView.animate(withDuration: 0.1, animations: {
-            self.hakkimizdaButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            self.hakkimizdaButton.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
             }, completion: { (finish) in
                 UIView.animate(withDuration: 0.1, animations: {
                     self.hakkimizdaButton.transform = CGAffineTransform.identity
@@ -79,7 +82,7 @@ class ProfilViewController: UIViewController {
         
         //BUTON TIKLAMA EFEKTİ
         UIView.animate(withDuration: 0.1, animations: {
-            self.cikisYapButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            self.cikisYapButton.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
             }, completion: { (finish) in
                 UIView.animate(withDuration: 0.1, animations: {
                     self.cikisYapButton.transform = CGAffineTransform.identity
@@ -148,6 +151,50 @@ class ProfilViewController: UIViewController {
         //MİNİK VERİTABANINDAN KULLANICI İD ÇEKİP SERVİSE GÖNDERİYORUZ
         mailLabel.text =        UserDefaults.standard.string(forKey: "kullanici_mail")!
         adSoyadLabel.text =     UserDefaults.standard.string(forKey: "kullanici_adi")!
+        
+        //SUNUCUDAN GELECEK PUAN
+        
+        
+        
+        let json: [String: Any] = [
+            "id":  UserDefaults.standard.string(forKey: "kullanici_id")!
+        ]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        let url = URL(string: base_url + "/kullanici/kullanici_puan_getir.php")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        
+        DispatchQueue.main.async {
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    return
+                }
+                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let responseJSON = responseJSON as? [String: Any] {
+                    print(responseJSON)
+                    
+                    let puanValue =  responseJSON["puan"] as? String
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.puanLabel.text = puanValue
+                        
+                    }
+                    
+                }
+            }
+            task.resume()
+        }
+        
+        
+        
+        
+        
+        
+        
         puanLabel.text =        UserDefaults.standard.string(forKey: "kullanici_puan")!
         
     }

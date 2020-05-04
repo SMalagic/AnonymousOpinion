@@ -53,7 +53,7 @@ class KayitOlViewController: UIViewController {
         
         //BUTON TIKLAMA EFEKTİ
         UIView.animate(withDuration: 0.1, animations: {
-            self.kayitOlButton.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+            self.kayitOlButton.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
             }, completion: { (finish) in
                 UIView.animate(withDuration: 0.1, animations: {
                     self.kayitOlButton.transform = CGAffineTransform.identity
@@ -95,14 +95,11 @@ class KayitOlViewController: UIViewController {
         
     }
     func kullaniciKayit(){
-        //post metoduyla karşı tarafa gönderilecek
-        
-        //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
-        
+             
         // prepare json data
         let json: [String: Any] = ["adsoyad": adsoyadText.text!,
-                                   "mail": mailText.text!,
-                                   "sifre": sifreText.text!,
+                                   "mail":    mailText.text!,
+                                   "sifre":   sifreText.text!,
                                    "puan": 0
                                   ]
         

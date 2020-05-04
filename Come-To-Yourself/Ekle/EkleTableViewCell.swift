@@ -13,6 +13,7 @@ class EkleTableViewCell: UITableViewCell {
     @IBOutlet weak var kullaniciAdıLabel: UILabel!
     @IBOutlet weak var uyariLabel: UILabel!
     @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var puanLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
