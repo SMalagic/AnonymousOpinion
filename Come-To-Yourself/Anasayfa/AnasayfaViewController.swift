@@ -12,7 +12,7 @@ import PopupDialog
 
 
 class AnasayfaViewController: UIViewController {
-
+    
     
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var vview1: UIView!
@@ -44,7 +44,7 @@ class AnasayfaViewController: UIViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont(name: "Futura", size: 20) ?? UIFont.systemFont(ofSize: 20)]
-
+        
         view1.isHidden = false
         view2.isHidden = true
         view3.isHidden = true
@@ -53,8 +53,8 @@ class AnasayfaViewController: UIViewController {
         
         
         tumBilgileriGetir()
-       
-   
+        
+        
     }
     
     @IBAction func segmentControl(_ sender: Any) {
@@ -62,27 +62,27 @@ class AnasayfaViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
-             UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
                 self.view1.isHidden = false
                 self.view2.isHidden = true
                 self.view3.isHidden = true
             })
             
         case 1:
-             UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
                 self.view1.isHidden = true
                 self.view2.isHidden = false
                 self.view3.isHidden = true
             })
         case 2:
-             UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: view, duration: 0.3, options: .transitionCrossDissolve, animations: {
                 self.view1.isHidden = true
                 self.view2.isHidden = true
                 self.view3.isHidden = true
                 self.segmentedControl.setTitle("Çok Yakında", forSegmentAt: 2)
                 
                 //ELİMİZLE ALERT OLUŞTURDUK
-                let title = "Profil Puanınıza Göre Sizi Yorumlayacağım. Sürpriz. Beklemede Kalın"
+                let title = "Seni Yorumlamam İçin Geliştirme Yapılıyor. Yakında..."
                 let message = ""
                 let popup = PopupDialog(title: title, message: message)
                 popup.transitionStyle = .fadeIn
@@ -152,19 +152,11 @@ class AnasayfaViewController: UIViewController {
         
     }
     
-
+    
     func tumBilgileriGetir(){
         
         
-        //KULLANICIYA BEKLEMESİ SÖYLENECEK
-        let alert = UIAlertController(title: nil, message: "Yükleniyor...", preferredStyle: .alert)
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
-        
+        self.showWaitOverlay()
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -204,19 +196,23 @@ class AnasayfaViewController: UIViewController {
                     if let responseJSON = responseJSON as? [String: Any] {
                         print(responseJSON)
                         
-                        let uyeSayisiValue              =  responseJSON["uyeSayisi"] as? String
-                        let degerlendirmeSayisiValue    =  responseJSON["degerlendirmeSayisi"] as? String
-                        let ortalamanValue              =  responseJSON["ortalaman"] as! Double
-                        let kullaniciyaKacOyVerildiValue              =  responseJSON["kullaniciya_kac_oy_verildi"] as! String
-
+                        let uyeSayisiValue                =  responseJSON["uyeSayisi"] as? String
+                        let degerlendirmeSayisiValue      =  responseJSON["degerlendirmeSayisi"] as? String
+                        let ortalamanValue                =  responseJSON["ortalaman"] as? String
+                        let kullaniciyaKacOyVerildiValue  =  responseJSON["kullaniciya_kac_oy_verildi"] as? String
+                        
                         print( uyeSayisiValue , degerlendirmeSayisiValue , ortalamanValue )
                         
                         DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: nil)
-                            self.uyeSayisiLabel.text = uyeSayisiValue
-                            self.degerlendirmeSayisiLabel.text = degerlendirmeSayisiValue
-                            self.ortalamanLabel.text = "\(ortalamanValue)"
-                            self.kasKisiOyladiLabel.text = kullaniciyaKacOyVerildiValue
+                            
+                            UIView.transition(with: self.view, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                                self.removeAllOverlays()
+                                self.uyeSayisiLabel.text                = uyeSayisiValue
+                                self.degerlendirmeSayisiLabel.text      = degerlendirmeSayisiValue
+                                self.ortalamanLabel.text                = ortalamanValue
+                                self.kasKisiOyladiLabel.text            = kullaniciyaKacOyVerildiValue
+                            })
+                            
                         }
                         
                         
@@ -236,10 +232,10 @@ class AnasayfaViewController: UIViewController {
         //BUTON TIKLAMA EFEKTİ
         UIView.animate(withDuration: 0.1, animations: {
             self.siziNasilDegerlendirdimButton.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
-            }, completion: { (finish) in
-                UIView.animate(withDuration: 0.1, animations: {
-                    self.siziNasilDegerlendirdimButton.transform = CGAffineTransform.identity
-                })
+        }, completion: { (finish) in
+            UIView.animate(withDuration: 0.1, animations: {
+                self.siziNasilDegerlendirdimButton.transform = CGAffineTransform.identity
+            })
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -251,5 +247,5 @@ class AnasayfaViewController: UIViewController {
     }
     
     
-        
+    
 }
