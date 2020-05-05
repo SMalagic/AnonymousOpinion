@@ -41,5 +41,15 @@ struct Soru: Decodable{
 }
 var sorularJson = [Soru]()
 
-
 var soruPuanlari = [0,0,0,0,0,0]
+
+
+struct GenelBilgiler: Decodable{
+    
+    let uyeSayisi :             String
+    let degerlendirmeSayisi :   String
+    let ortalaman :             Double
+    
+}
+
+var genelBilgilerJson = [GenelBilgiler]()

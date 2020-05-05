@@ -30,7 +30,7 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //BÜYÜK BAŞLIKLAR
         self.navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         
         //TABLOADKİ SONDAKİ ÇİZGİLERİ KALDIRIR
         tableView.tableFooterView = UIView()
@@ -161,11 +161,12 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
         if Reachability.isConnectedToNetwork(){
             //KULLANICIYA BEKLEMESİ SÖYLENECEK
             self.showWaitOverlay()
+     
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 
                 let json: [String: Any] = [
-                    "kendi_kullanici_id" : kullanici_id,
+                    "kendi_kullanici_id" : UserDefaults.standard.string(forKey: "kullanici_id")!,
                     "puan_kullanici_id":   puan_kullanici_id_param,
                     "soru_id":             sorularJson[indexPathRow_param].id,
                     "puan" :               puan_param
@@ -186,31 +187,25 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
                         let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
                         if let responseJSON = responseJSON as? [String: Any] {
                             print(responseJSON)
+                            
                             let cevapValue =  responseJSON["cevap"] as? String
                             print(cevapValue)
                             if cevapValue == "1" {
                                 DispatchQueue.main.async {
-                                    
                                     self.removeAllOverlays()
                                     sorularJson.remove(at: indexPathRow_param)
                                     self.tabloReload()
                                     self.view.isUserInteractionEnabled = true
-
                                 }
                             }
                             else if cevapValue == "0" {
-                                
                                 DispatchQueue.main.async {
-                             
                                     self.removeAllOverlays()
                                     sorularJson.remove(at: indexPathRow_param)
                                     self.tabloReload()
                                     self.alertFunction(message: "Daha Önce Bu Soruya Puan Verdiniz...")
                                     self.view.isUserInteractionEnabled = true
-
                                 }
-                                
-                                
                             }
                         }
                     }
@@ -223,41 +218,40 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func fetchQuestions(){
         
-        DispatchQueue.main.async {
+        
+        //PHP DOSYASINA GÖNDERİLECEK URL OLUŞTURULUYOR
+        var postString = base_url + "/soru/sorulari_getir.php"
+        let myUrl = URL(string: postString )
+        
+        var request = URLRequest(url:myUrl!)
+        request.httpMethod = "GET"// Compose a query string
+        
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             
-            //PHP DOSYASINA GÖNDERİLECEK URL OLUŞTURULUYOR
-            var postString = base_url + "/soru/sorulari_getir.php"
-            let myUrl = URL(string: postString )
-            
-            var request = URLRequest(url:myUrl!)
-            request.httpMethod = "GET"// Compose a query string
-            
-            let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-                
-                DispatchQueue.main.async {
-                    if let error = error  {
-                        print("Hata")
-                        self.alertFunction(message: "Geçersiz İstek. Bilinmeyen Hata")
-                        return
-                    }
-                    guard let data = data else {return}
-                    do{
-                        let decoder = JSONDecoder()
-                        sorularJson.removeAll()
-                        sorularJson = try decoder.decode([Soru].self, from: data)
-                        
-                        print(sorularJson)
-                        self.tabloReload()
-
-                    }
-                    catch let jsonError{
-                        print("Fail", jsonError)
-                    }
+            DispatchQueue.main.async {
+                if let error = error  {
+                    print("Hata")
+                    self.alertFunction(message: "Geçersiz İstek. Bilinmeyen Hata")
+                    return
                 }
-                
+                guard let data = data else {return}
+                do{
+                    let decoder = JSONDecoder()
+                    sorularJson.removeAll()
+                    sorularJson = try decoder.decode([Soru].self, from: data)
+                    
+                    print(sorularJson)
+                    self.tabloReload()
+                    
+                }
+                catch let jsonError{
+                    print("Fail", jsonError)
+                }
             }
-            task.resume()
+            
         }
+        task.resume()
+        
         
     }
     
@@ -270,11 +264,11 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tabloReload(){
         
-//        UIView.transition(with: self.tableView,
-//                          duration: 0.7,
-//                          options: .transitionCrossDissolve,
-//        animations: { self.tableView.reloadData() })
-//
+        //        UIView.transition(with: self.tableView,
+        //                          duration: 0.7,
+        //                          options: .transitionCrossDissolve,
+        //        animations: { self.tableView.reloadData() })
+        //
         
         let range = NSMakeRange(0, self.tableView.numberOfSections)
         let sections = NSIndexSet(indexesIn: range)

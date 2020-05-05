@@ -30,8 +30,8 @@
             filePath = "Come-To-Yourself/Ekle/PuanVer/PuanVerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "yuklePuan(puan_kullanici_id_param:indexPathRow_param:puan_param:)"
             landmarkType = "7">
          </BreakpointContent>
