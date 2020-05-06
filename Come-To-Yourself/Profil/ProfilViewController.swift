@@ -9,9 +9,12 @@
 import UIKit
 import  PopupDialog
 import StatusAlert
+import GoogleMobileAds
 
-class ProfilViewController: UIViewController {
-
+class ProfilViewController: UIViewController, GADInterstitialDelegate{
+    
+    
+   
     @IBOutlet weak var puanLabel: UILabel!
     @IBOutlet weak var adSoyadLabel: UILabel!
     @IBOutlet weak var mailLabel: UILabel!
@@ -25,12 +28,33 @@ class ProfilViewController: UIViewController {
     @IBOutlet weak var hakkimizdaButton: UIButton!
     @IBOutlet weak var cikisYapButton: UIButton!
     
-    
+    var interstitial: GADInterstitial!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         
+    
+
+        //reklam özellikleri---------------------
+        createAndLoadInterstitial()
+        interstitial.delegate = self
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            
+            if self.interstitial.isReady {
+              self.interstitial.present(fromRootViewController: self)
+            } else {
+              print("Ad wasn't ready")
+            }
+            
+        }
+
+        
+        
+        
+        
+        
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         //MİNİK VERİTABANINDAN KULLANICI İD ÇEKİP SERVİSE GÖNDERİYORUZ
         let vt_kullanici_id : String  = UserDefaults.standard.string(forKey: "kullanici_adi")!
@@ -50,8 +74,13 @@ class ProfilViewController: UIViewController {
                     self.sorunMuVarButton.transform = CGAffineTransform.identity
                 })
         })
+        
+        
+        
+        
+      
+        
     }
-    
     @IBAction func ilkelerimizButtonTapped(_ sender: Any) {
 
         //BUTON TIKLAMA EFEKTİ
@@ -77,7 +106,6 @@ class ProfilViewController: UIViewController {
                 })
         })
     }
-    
     @IBAction func cikisYapButtonTapped(_ sender: Any) {
         
         //BUTON TIKLAMA EFEKTİ
@@ -117,7 +145,7 @@ class ProfilViewController: UIViewController {
         self.present(popup, animated: true, completion: nil)
         
     }
-    
+
     func shadowViews(){
         
         //el ile gölgelendirme veriliyor
@@ -145,7 +173,6 @@ class ProfilViewController: UIViewController {
         shadowView3.cornerRadius()
         
     }
-    
     func profilBilgileriGetir(){
         
         //MİNİK VERİTABANINDAN KULLANICI İD ÇEKİP SERVİSE GÖNDERİYORUZ
@@ -199,5 +226,54 @@ class ProfilViewController: UIViewController {
         
     }
     
+    
+    //reklam özellikleri---------------------------------------
+    fileprivate func createAndLoadInterstitial() {
+      interstitial = GADInterstitial(adUnitID: "ca-app-pub-5299893774436883/3400193654")
+      let request = GADRequest()
+      // Request test ads on devices you specify. Your test device ID is printed to the console when
+      // an ad request is made.
+      interstitial.load(request)
+    }
+    
+    
+    
+    // reklam özellikleri -----------------------------------------------
+    /// Tells the delegate an ad request succeeded.
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+      print("Reklam Başarıyla Alındı")
+    }
 
+    /// Tells the delegate an ad request failed.
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+      print("interstitial:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    /// Tells the delegate that an interstitial will be presented.
+    func interstitialWillPresentScreen(_ ad: GADInterstitial) {
+      print("Şu anda ekranda görünüyor")
+    }
+
+    /// Tells the delegate the interstitial is to be animated off the screen.
+    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
+      print("interstitialWillDismissScreen-------------")
+    }
+
+    /// Tells the delegate the interstitial had been animated off the screen.
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+      print("Ekran Kapandı")
+    }
+
+    /// Tells the delegate that a user click will open another app
+    /// (such as the App Store), backgrounding the current app.
+    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
+      print("interstitialWillLeaveApplication-----------------")
+    }
+    
+    
+    
+    
+    
+    
+    
 }

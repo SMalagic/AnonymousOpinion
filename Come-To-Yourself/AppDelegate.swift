@@ -5,8 +5,11 @@
 //  Created by Serkan Mehmet Malagiç on 8.04.2020.
 //  Copyright © 2020 Serkan Mehmet Malagiç. All rights reserved.
 //
+//  ORİJİNAL UNİT İD TEST YERİNE APP STORE DA BU KULLANILACAK
+//  ca-app-pub-5299893774436883/5446104196
 
 import UIKit
+import GoogleMobileAds
 
 
 @UIApplicationMain
@@ -18,10 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         
-       
+       GADMobileAds.sharedInstance().start(completionHandler: nil)
+
         
         
-//        RememberUser()
+        RememberUser()
 
         return true
     }
@@ -45,12 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(user_id)
         
         if user_id != nil{
-            
+            let board : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBar = board.instantiateViewController(withIdentifier: "tabBarS") as! UITabBarController
+            window?.rootViewController = tabBar
         }
         
-        let board : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBar = board.instantiateViewController(withIdentifier: "tabBarS") as! UITabBarController
-        window?.rootViewController = tabBar
+        
         
         
     }

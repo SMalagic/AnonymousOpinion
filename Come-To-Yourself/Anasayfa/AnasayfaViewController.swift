@@ -9,7 +9,7 @@
 import UIKit
 import SwiftGifOrigin
 import PopupDialog
-
+import GoogleMobileAds
 
 class AnasayfaViewController: UIViewController {
     
@@ -35,8 +35,31 @@ class AnasayfaViewController: UIViewController {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    
+    @IBOutlet weak var adView: GADBannerView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        //reklamcılık işleri
+        adView.adUnitID = "ca-app-pub-5299893774436883/5446104196"
+        adView.rootViewController = self
+        adView.load(GADRequest())
+        adView.delegate = self
+        
+                
+        
+        //reklamcılık view gölgelendirme
+        //el ile gölgelendirme veriliyor
+        adView.layer.shadowColor = UIColor.darkGray.cgColor
+        adView.layer.shadowOpacity = 0.5
+        adView.layer.shadowOffset = CGSize.zero
+        adView.layer.shadowRadius = 3
+        
+        
+        
         
         //apple gif görüntülenmesi
         let jeremyGif = UIImage.gif(name: "apple")
@@ -82,7 +105,7 @@ class AnasayfaViewController: UIViewController {
                 self.segmentedControl.setTitle("Çok Yakında", forSegmentAt: 2)
                 
                 //ELİMİZLE ALERT OLUŞTURDUK
-                let title = "Seni Yorumlamam İçin Geliştirme Yapılıyor. Yakında..."
+                let title = "Senin Kişiliğin İle İlgili Tahminde Bulunacağım. Yakında..."
                 let message = ""
                 let popup = PopupDialog(title: title, message: message)
                 popup.transitionStyle = .fadeIn
@@ -247,5 +270,19 @@ class AnasayfaViewController: UIViewController {
     }
     
     
+    
+}
+
+
+
+extension AnasayfaViewController : GADBannerViewDelegate {
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("reklam alındı")
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print(error)
+    }
     
 }

@@ -123,8 +123,9 @@ class GirisYapViewController: UIViewController {
                                         delegate.RememberUser()
                                         
                                         
-                                        self.girisYapButton.hideLoading()
                                         self.performSegue(withIdentifier: "toTabBar", sender: nil)
+                                        self.girisYapButton.hideLoading()
+
                                     }
                                 }
                                 else if cevapValue == "0"{

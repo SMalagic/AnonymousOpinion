@@ -15,6 +15,7 @@ target 'Come-To-Yourself' do
   pod 'SPAlert'
   pod 'SwiftOverlays', '~> 5.0.1'
   pod 'PTCardTabBar'
+  pod 'Google-Mobile-Ads-SDK'
 
 
 
