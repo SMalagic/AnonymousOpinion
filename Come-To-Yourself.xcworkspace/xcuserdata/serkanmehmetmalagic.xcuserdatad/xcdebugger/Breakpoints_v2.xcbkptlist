@@ -30,8 +30,8 @@
             filePath = "Come-To-Yourself/Ekle/PuanVer/PuanVerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "yuklePuan(puan_kullanici_id_param:indexPathRow_param:puan_param:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Come-To-Yourself/Ekle/PuanVer/PuanVerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "yuklePuan(puan_kullanici_id_param:indexPathRow_param:puan_param:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Come-To-Yourself/Ekle/PuanVer/PuanVerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "btn1Tapped(_:)"
             landmarkType = "7">
          </BreakpointContent>

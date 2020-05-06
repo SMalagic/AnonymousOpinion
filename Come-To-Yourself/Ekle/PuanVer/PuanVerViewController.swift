@@ -10,6 +10,7 @@ import UIKit
 import SCLAlertView
 import SPAlert
 import SwiftOverlays
+import PopupDialog
 
 class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -258,6 +259,15 @@ class PuanVerViewController: UIViewController, UITableViewDelegate, UITableViewD
     //sağdaki buton navigationdaki
     @objc func infoTapped(){
         
+        let title = "1 ile 5 Arasında Soruları Puanlayın. Anonim Olarak Değerlendirin. Sorunuz Varsa Profil Destek Sayfasından Bize Ulaşabilirsiniz"
+        let message = ""
+        let popup = PopupDialog(title: title, message: message)
+        popup.transitionStyle = .fadeIn
+        let buttonOne = CancelButton(title: "Tamam") {
+            print("Tamam tuşuna basıldı.")
+        }
+        popup.addButtons([buttonOne])
+        self.present(popup, animated: true, completion: nil)
         
     }
     

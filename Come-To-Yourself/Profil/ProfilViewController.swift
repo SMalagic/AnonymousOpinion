@@ -30,6 +30,8 @@ class ProfilViewController: UIViewController, GADInterstitialDelegate{
     
     var interstitial: GADInterstitial!
 
+    var dusunce = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,6 +80,34 @@ class ProfilViewController: UIViewController, GADInterstitialDelegate{
         
         
         
+        let alert = UIAlertController(title: "Düşünce ve Şikayet", message: "Eleştirebilirsiniz", preferredStyle: UIAlertController.Style.alert )
+        //Step : 2
+        let save = UIAlertAction(title: "Gönder", style: .default) { (alertAction) in
+            let textField = alert.textFields![0] as UITextField
+            if textField.text != "" {
+                //Read TextFields text data
+                print(textField.text!)
+                self.dusunce = textField.text!
+                self.dusunceGonder()
+                
+            } else {
+                print("TF Boş...")
+            }
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Düşüncenizi Yazınız..."
+            textField.textColor = .red
+        }
+        alert.addAction(save)
+        let cancel = UIAlertAction(title: "Vazgeç", style: .default) { (alertAction) in }
+        alert.addAction(cancel)
+        self.present(alert, animated:true, completion: nil)
+
+        
+        
+        
+        
+        
       
         
     }
@@ -91,12 +121,12 @@ class ProfilViewController: UIViewController, GADInterstitialDelegate{
                     self.ilkelerimizButton.transform = CGAffineTransform.identity
                 })
         })
+        alertFunction(message: "Kayıt olarak 18 yaşından büyük olduğunuzu kabul etmiş olursunuz. Bilgilerinizin gizliliği kimse tarafından tahrip edilemez. Uygulama tamamen anonim fikir paylaşımına izin vermektedir ve başka amaca hizmet edemez. Uygulama kullanımıyla ilgili çıkan ilişki değişikliklerinden tarafımız sorumlu değildir. Amaç sadece insanların birbirleri hakkında nasıl bir fikir yürüttükleridir. İnsanın kendisinin etrafı tarafından nasıl karşılandığını ortaya çıkaran bu uygulama aynı zamanda da sorumluluk kabul etmemektedir. Uygulama telif hakkı tasarımcısına yani Serkan Mehmet MALAGİÇ'e aittir. İzinsiz konseptin kullanılması yasaktır. Tüm soru ve görüşleriniz için serkanmalagic@icloud.com adresine mail atabilir veya sosyal medya hesaplarımdan benimle iletişime geçebilirsiniz.")
+        
     }
     @IBAction func hakkimizdaButtonTapped(_ sender: Any) {
 
-        hakkimizdaButton.adjustsImageWhenHighlighted = false
-
-        hakkimizdaButton.adjustsImageWhenDisabled = false
+   
         //BUTON TIKLAMA EFEKTİ
         UIView.animate(withDuration: 0.1, animations: {
             self.hakkimizdaButton.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
@@ -105,6 +135,9 @@ class ProfilViewController: UIViewController, GADInterstitialDelegate{
                     self.hakkimizdaButton.transform = CGAffineTransform.identity
                 })
         })
+        alertFunction(message: "SerkanApp olarak 3 yıldan beri ios geliştirme üzerine çalışıyorum. Gerek profesyonel gerek ise amatör olarak çeşitli yazılımlar geliştiriyorum. Bilgisayar mühendisliği mezunuyum ve ios programlamayı çok seviyorum. Android veya diğer platformları da denedim fakat çok verim alamadım. Uygulamayı kullanırken geri bildirimleriniz benim için çok önemli mutlaka geri bildirim burakmayı unutmayın")
+        
+        
     }
     @IBAction func cikisYapButtonTapped(_ sender: Any) {
         
@@ -145,7 +178,6 @@ class ProfilViewController: UIViewController, GADInterstitialDelegate{
         self.present(popup, animated: true, completion: nil)
         
     }
-
     func shadowViews(){
         
         //el ile gölgelendirme veriliyor
@@ -273,7 +305,70 @@ class ProfilViewController: UIViewController, GADInterstitialDelegate{
     
     
     
-    
+    func dusunceGonder(){
+        
+        self.showWaitOverlay()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            
+            //json ile veritabanına kullanıcı id ve düşünce yazılacak
+            // Kişinin özel bilgileri burada sergilenecek
+            let json: [String: Any] = [
+                "id":  UserDefaults.standard.string(forKey: "kullanici_id")!,
+                "dusunce" : self.dusunce
+            ]
+            
+            
+            let jsonData = try? JSONSerialization.data(withJSONObject: json)
+            // create post request
+            let url = URL(string: base_url + "/kullanici/kullanici_dusunce.php")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            
+            // insert json data to the request
+            request.httpBody = jsonData
+            
+            DispatchQueue.main.async {
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                    guard let data = data, error == nil else {
+                        print(error?.localizedDescription ?? "No data")
+                        return
+                    }
+                    let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                    if let responseJSON = responseJSON as? [String: Any] {
+                        print(responseJSON)
+                        
+                        let cevapValue                =  responseJSON["cevap"] as? String
+                        
+                        if cevapValue == "1"{
+                            DispatchQueue.main.async {
+                                self.removeAllOverlays()
+                                self.alertFunction(message: "Düşünceniz Başarıyla Gönderilmiştir")
+                            }
+                            
+                        }
+                        else{
+                            DispatchQueue.main.async {
+                                self.removeAllOverlays()
+                                self.alertFunction(message: "Bilinmeyen Bir Hata Oluştu")
+                            }
+                            
+                        }
+                        
+                        
+                        
+                    }
+                }
+                task.resume()
+            }
+            
+            
+        }
+
+        
+        
+        
+    }
     
     
 }
