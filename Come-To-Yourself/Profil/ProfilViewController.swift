@@ -135,7 +135,7 @@ class ProfilViewController: UIViewController, GADInterstitialDelegate{
                     self.hakkimizdaButton.transform = CGAffineTransform.identity
                 })
         })
-        alertFunction(message: "SerkanApp olarak 3 yıldan beri ios geliştirme üzerine çalışıyorum. Gerek profesyonel gerek ise amatör olarak çeşitli yazılımlar geliştiriyorum. Bilgisayar mühendisliği mezunuyum ve ios programlamayı çok seviyorum. Android veya diğer platformları da denedim fakat çok verim alamadım. Uygulamayı kullanırken geri bildirimleriniz benim için çok önemli mutlaka geri bildirim burakmayı unutmayın")
+        alertFunction(message: "SerkanApp olarak 3 yıldan beri ios geliştirme üzerine çalışmaktadır. Gerek profesyonel gerek ise amatör olarak çeşitli yazılımlar geliştirmiştir. Bilgisayar mühendisliği olup ios programlamayı çok sevmektedir. Android veya diğer platformları da denemiş fakat çok verim alamamıştır. Uygulamayı kullanırken geri bildirimleriniz kendi için çok önemli mutlaka geri bildirim burakmayı unutmayın")
         
         
     }
